@@ -1,0 +1,12 @@
+# Because we're using xcodegen
+*.xcodeproj/*
+*.xcworkspace/*
+
+# Build files
+build/
+
+# IDEA files
+.idea
+
+# MacOS files
+.DS_Store

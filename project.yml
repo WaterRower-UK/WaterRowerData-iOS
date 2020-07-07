@@ -1,0 +1,8 @@
+name: FTMS-iOS
+options:
+  bundleIdPrefix: "uk.co.waterrower"
+targets:
+  FTMS-iOS-Framework:
+    type: framework
+    platform: iOS
+    sources: [FTMS-iOS-Framework]
