@@ -12,6 +12,7 @@
 		8CF8BC1924B60040007D9B8D /* FTMS_iOS_Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF8BC0F24B60040007D9B8D /* FTMS_iOS_Framework.framework */; };
 		8CFE4CFE24B61AEF009A3415 /* RowerDataCharacteristicTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFE4CFD24B61AEF009A3415 /* RowerDataCharacteristicTest.swift */; };
 		8CFE4D0024B61AF5009A3415 /* RowerDataCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFE4CFF24B61AF5009A3415 /* RowerDataCharacteristic.swift */; };
+		8CFE4D0224B61E0D009A3415 /* CharacteristicFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFE4D0124B61E0D009A3415 /* CharacteristicFlags.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 		8CF8BC1F24B60040007D9B8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CFE4CFD24B61AEF009A3415 /* RowerDataCharacteristicTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowerDataCharacteristicTest.swift; sourceTree = "<group>"; };
 		8CFE4CFF24B61AF5009A3415 /* RowerDataCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowerDataCharacteristic.swift; sourceTree = "<group>"; };
+		8CFE4D0124B61E0D009A3415 /* CharacteristicFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicFlags.swift; sourceTree = "<group>"; };
 		C115D44C94C94963B66935A4 /* Pods_FTMS_iOS_Framework_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FTMS_iOS_Framework_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEF45F08D0F98D7BB3E4B58E /* Pods_FTMS_iOS_Framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FTMS_iOS_Framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -103,6 +105,7 @@
 			children = (
 				8CFE4CFD24B61AEF009A3415 /* RowerDataCharacteristicTest.swift */,
 				8CF8BC1F24B60040007D9B8D /* Info.plist */,
+				8CFE4D0124B61E0D009A3415 /* CharacteristicFlags.swift */,
 			);
 			path = "FTMS-iOS-Framework-Tests";
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CFE4D0224B61E0D009A3415 /* CharacteristicFlags.swift in Sources */,
 				8CFE4CFE24B61AEF009A3415 /* RowerDataCharacteristicTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
