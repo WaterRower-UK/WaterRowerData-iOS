@@ -5,6 +5,6 @@ import XCTest
 class ExampleTest: XCTestCase {
 
     func testExample() {
-        XCTAssertEqual(2 + 3, 4)
+        XCTAssertEqual(2 + 3, 5)
     }
 }
