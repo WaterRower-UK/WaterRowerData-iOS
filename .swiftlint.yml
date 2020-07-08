@@ -3,4 +3,4 @@ excluded:
   - vendor
 
 disabled_rules:
-  - identifier_name		# Only allows names with 3-40 characters
+  - identifier_name        # Only allows names with 3-40 characters
