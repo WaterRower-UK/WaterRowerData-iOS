@@ -19,9 +19,6 @@ jobs:
 
     steps:
 
-      - name: Install xcodegen
-        run: brew install xcodegen
-
       - name: Set xcode version
         run: sudo xcode-select -switch "${XCODE_PATH}"
         env:
@@ -29,9 +26,6 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Run xcodegen
-        run: xcodegen generate
 
       - name: Cocoapods install
         run: pod install --verbose

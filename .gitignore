@@ -1,6 +1,5 @@
-# Because we're using xcodegen
-*.xcodeproj/*
-*.xcworkspace/*
+# User settings
+xcuserdata/
 
 # Build files
 build/
@@ -15,3 +14,6 @@ Pods/
 
 # MacOS files
 .DS_Store
+
+# Misc
+*.swp
