@@ -1,6 +1,11 @@
 name: FTMS-iOS
+
 options:
   bundleIdPrefix: "uk.co.waterrower"
+
+settings:
+  DEVELOPMENT_TEAM: CMQS4E74X4
+
 targets:
   FTMS-iOS-Framework:
     type: framework
