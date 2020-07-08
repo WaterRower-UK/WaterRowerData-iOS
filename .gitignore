@@ -9,7 +9,9 @@ build/
 Pods/
 
 # IDEA files
-.idea
+.idea/*
+!.idea/codeStyles
+!.idea/inspectionProfiles
 
 # MacOS files
 .DS_Store
