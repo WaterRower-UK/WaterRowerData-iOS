@@ -1,0 +1,31 @@
+name: FTMS-iOS
+
+options:
+  bundleIdPrefix: "uk.co.waterrower"
+
+settings:
+  DEVELOPMENT_TEAM: CMQS4E74X4
+
+targets:
+
+  FTMS-iOS-Framework:
+    type: framework
+    platform: iOS
+    sources: [FTMS-iOS-Framework]
+
+    scheme:
+      testTargets:
+        - FTMS-iOS-Framework-Tests
+
+    preBuildScripts:
+      - script: "${PODS_ROOT}/SwiftLint/swiftlint autocorrect"
+        name: "Autocorrect SwiftLint"
+      - script: "${PODS_ROOT}/SwiftLint/swiftlint --strict"
+        name: "Check if we pass SwiftLint"
+
+  FTMS-iOS-Framework-Tests:
+    type: bundle.unit-test
+    platform: iOS
+    sources: [FTMS-iOS-Framework-Tests]
+    dependencies:
+      - target: FTMS-iOS-Framework

@@ -1,0 +1,17 @@
+# Because we're using xcodegen
+*.xcodeproj/*
+*.xcworkspace/*
+
+# Build files
+build/
+
+# Pod files
+Pods/
+
+# IDEA files
+.idea/*
+!.idea/codeStyles
+!.idea/inspectionProfiles
+
+# MacOS files
+.DS_Store

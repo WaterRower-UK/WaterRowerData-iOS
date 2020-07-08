@@ -1,0 +1,46 @@
+name: Test
+
+on: pull_request
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        iOS: ['iOS 13.5']
+        include:
+
+          # Details from: https://github.com/actions/virtual-environments/blob/master/images/macos/macos-10.15-Readme.md
+          - iOS: 'iOS 13.5'
+            os: macOS-10.15
+            destination: 'platform=iOS Simulator,OS=13.5,name=iPhone SE (2nd generation)'
+            xcode: '/Applications/Xcode_11.5.app'
+
+    steps:
+
+      - name: Install xcodegen
+        run: brew install xcodegen
+
+      - name: Set xcode version
+        run: sudo xcode-select -switch "${XCODE_PATH}"
+        env:
+          XCODE_PATH: ${{ matrix.xcode }}
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Run xcodegen
+        run: xcodegen generate
+
+      - name: Cocoapods install
+        run: pod install --verbose
+
+      - name: SwiftLint
+        run: Pods/SwiftLint/swiftlint --strict
+
+      - name: Build
+        run: xcodebuild -workspace FTMS-iOS.xcworkspace -scheme FTMS-iOS-Framework -destination "${DESTINATION}" build test CODE_SIGNING_REQUIRED=NO
+        env:
+          DESTINATION: ${{ matrix.destination }}
+          DEVELOPER_DIR: "${{ matrix.xcode }}/Contents/Developer"
