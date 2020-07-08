@@ -10,8 +10,8 @@
 		208E751CA494136F0C3B0ACD /* Pods_FTMS_iOS_Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEF45F08D0F98D7BB3E4B58E /* Pods_FTMS_iOS_Framework.framework */; };
 		4ED538721FC920C9C8BACAE3 /* Pods_FTMS_iOS_Framework_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C115D44C94C94963B66935A4 /* Pods_FTMS_iOS_Framework_Tests.framework */; };
 		8CF8BC1924B60040007D9B8D /* FTMS_iOS_Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF8BC0F24B60040007D9B8D /* FTMS_iOS_Framework.framework */; };
-		8CF8BC1E24B60040007D9B8D /* ExampleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF8BC1D24B60040007D9B8D /* ExampleTest.swift */; };
-		8CF8BC2A24B6007D007D9B8D /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF8BC2924B6007D007D9B8D /* Example.swift */; };
+		8CFE4CFE24B61AEF009A3415 /* RowerDataCharacteristicTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFE4CFD24B61AEF009A3415 /* RowerDataCharacteristicTest.swift */; };
+		8CFE4D0024B61AF5009A3415 /* RowerDataCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFE4CFF24B61AF5009A3415 /* RowerDataCharacteristic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,9 +32,9 @@
 		8CF8BC0F24B60040007D9B8D /* FTMS_iOS_Framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FTMS_iOS_Framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CF8BC1324B60040007D9B8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CF8BC1824B60040007D9B8D /* FTMS-iOS-Framework-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FTMS-iOS-Framework-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8CF8BC1D24B60040007D9B8D /* ExampleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTest.swift; sourceTree = "<group>"; };
 		8CF8BC1F24B60040007D9B8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8CF8BC2924B6007D007D9B8D /* Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
+		8CFE4CFD24B61AEF009A3415 /* RowerDataCharacteristicTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowerDataCharacteristicTest.swift; sourceTree = "<group>"; };
+		8CFE4CFF24B61AF5009A3415 /* RowerDataCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowerDataCharacteristic.swift; sourceTree = "<group>"; };
 		C115D44C94C94963B66935A4 /* Pods_FTMS_iOS_Framework_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FTMS_iOS_Framework_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEF45F08D0F98D7BB3E4B58E /* Pods_FTMS_iOS_Framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FTMS_iOS_Framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -92,8 +92,8 @@
 		8CF8BC1124B60040007D9B8D /* FTMS-iOS-Framework */ = {
 			isa = PBXGroup;
 			children = (
+				8CFE4CFF24B61AF5009A3415 /* RowerDataCharacteristic.swift */,
 				8CF8BC1324B60040007D9B8D /* Info.plist */,
-				8CF8BC2924B6007D007D9B8D /* Example.swift */,
 			);
 			path = "FTMS-iOS-Framework";
 			sourceTree = "<group>";
@@ -101,7 +101,7 @@
 		8CF8BC1C24B60040007D9B8D /* FTMS-iOS-Framework-Tests */ = {
 			isa = PBXGroup;
 			children = (
-				8CF8BC1D24B60040007D9B8D /* ExampleTest.swift */,
+				8CFE4CFD24B61AEF009A3415 /* RowerDataCharacteristicTest.swift */,
 				8CF8BC1F24B60040007D9B8D /* Info.plist */,
 			);
 			path = "FTMS-iOS-Framework-Tests";
@@ -276,7 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CF8BC2A24B6007D007D9B8D /* Example.swift in Sources */,
+				8CFE4D0024B61AF5009A3415 /* RowerDataCharacteristic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CF8BC1E24B60040007D9B8D /* ExampleTest.swift in Sources */,
+				8CFE4CFE24B61AEF009A3415 /* RowerDataCharacteristicTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
