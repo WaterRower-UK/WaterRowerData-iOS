@@ -1,6 +1,6 @@
 import XCTest
 
-//@testable import FTMS_iOS_Framework
+@testable import Pods_FTMS_iOS_Framework
 
 class ExampleTest: XCTestCase {
 
