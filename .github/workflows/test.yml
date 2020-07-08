@@ -37,7 +37,7 @@ jobs:
         run: pod install --verbose
 
       - name: Build
-        run: xcodebuild -workspace FTMS-iOS.xcworkspace -scheme FTMS-iOS-Framework -destination "${DESTINATION}" build
+        run: xcodebuild -workspace FTMS-iOS.xcworkspace -scheme FTMS-iOS-Framework -destination "${DESTINATION}" build test CODE_SIGNING_REQUIRED=NO
         env:
           DESTINATION: ${{ matrix.destination }}
           DEVELOPER_DIR: "${{ matrix.xcode }}/Contents/Developer"
