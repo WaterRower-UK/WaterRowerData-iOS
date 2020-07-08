@@ -6,3 +6,5 @@ target 'FTMS-iOS-Framework' do
     inherit! :search_paths
   end
 end
+
+pod 'SwiftLint'
