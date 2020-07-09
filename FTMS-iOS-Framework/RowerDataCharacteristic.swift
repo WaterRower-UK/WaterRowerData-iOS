@@ -17,7 +17,8 @@ class RowerDataCharacteristic {
             energyPerHourKiloCalories: energyPerHour(from: data),
             energyPerMinuteKiloCalories: energyPerMinute(from: data),
             heartRate: heartRate(from: data),
-            metabolicEquivalent: metabolicEquivalent(from: data)
+            metabolicEquivalent: metabolicEquivalent(from: data),
+            elapsedTimeSeconds: elapsedTime(from: data)
         )
     }
 
@@ -36,7 +37,8 @@ class RowerDataCharacteristic {
         rowerDataEnergyPerHourField,
         rowerDataEnergyPerMinuteField,
         rowerDataHeartRateField,
-        rowerDataMetabolicEquivalentField
+        rowerDataMetabolicEquivalentField,
+        rowerDataElapsedTimeField
     ]
 
     private static func strokeRate(from data: Data) -> Double? {
@@ -105,6 +107,10 @@ class RowerDataCharacteristic {
         }
 
         return Double(intValue) / 10
+    }
+
+    private static func elapsedTime(from data: Data) -> Int? {
+        return readIntValue(from: data, for: rowerDataElapsedTimeField)
     }
 
     private static func readIntValue(from data: Data, for field: Field) -> Int? {

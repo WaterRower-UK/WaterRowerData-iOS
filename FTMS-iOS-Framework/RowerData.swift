@@ -16,4 +16,5 @@ struct RowerData {
     let energyPerMinuteKiloCalories: Int?
     let heartRate: Int?
     let metabolicEquivalent: Double?
+    let elapsedTimeSeconds: Int?
 }
