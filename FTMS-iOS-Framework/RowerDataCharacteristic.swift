@@ -1,12 +1,5 @@
 import Foundation
 
-struct RowerData {
-
-    let averageStrokeRate: Double?
-    let totalDistanceMeters: UInt32?
-    let instantaneousPaceSeconds: UInt16?
-}
-
 class RowerDataCharacteristic {
 
     static func decode(data: Data) -> RowerData {
@@ -17,51 +10,71 @@ class RowerDataCharacteristic {
         )
     }
 
+    private static let fields: [Field] = [
+        rowerDataFlagsField,
+        rowerDataAverageStrokeRateField,
+        rowerDataTotalDistanceField,
+        rowerDataInstantaneousPaceField
+    ]
+
     private static func averageStrokeRate(from data: Data) -> Double? {
-        let flagsValue = data[0]
-        let averageStrokeRatePresent = flagsValue & 0b10 != 0
+        if !rowerDataAverageStrokeRateField.isPresent(in: data) {
+            return nil
+        }
 
-        if averageStrokeRatePresent {
-            return Double(data[2]) * (pow(2.0, -1.0))
+        var offset = 0
+        for i in 0..<fields.count {
+            let field = fields[i]
+            if field.name == rowerDataAverageStrokeRateField.name {
+                let intValue = data.readIntValue(format: field.format, offset: offset)
+                return Double(intValue) * (pow(2.0, -1.0))
+            }
+
+            if field.isPresent(in: data) {
+                offset += field.format.numberOfBytes()
+            }
         }
 
         return nil
     }
 
-    private static func totalDistanceMeters(from data: Data) -> UInt32? {
-        let flagsValue = data[0]
-        let totalDistancePresent = flagsValue & 0b100 != 0
-
-        var offset = 2
-        let averageStrokeRatePresent = flagsValue & 0b10 != 0
-        if averageStrokeRatePresent {
-            offset += 1
+    private static func totalDistanceMeters(from data: Data) -> Int? {
+        if !rowerDataTotalDistanceField.isPresent(in: data) {
+            return nil
         }
 
-        if totalDistancePresent {
-            return UInt32(data[offset]) + (UInt32(data[offset + 1]) << 8) + (UInt32(data[offset + 2]) << 16)
+        var offset = 0
+        for i in 0..<fields.count {
+            let field = fields[i]
+            if field.name == rowerDataTotalDistanceField.name {
+                let intValue = data.readIntValue(format: field.format, offset: offset)
+                return intValue
+            }
+
+            if field.isPresent(in: data) {
+                offset += field.format.numberOfBytes()
+            }
         }
 
         return nil
     }
 
-    private static func instantaneousPaceSeconds(from data: Data) -> UInt16? {
-        let flagsValue = data[0]
-        let instantaneousPacePresent = flagsValue & 0b1000 != 0
-
-        var offset = 2
-        let averageStrokeRatePresent = flagsValue & 0b10 != 0
-        if averageStrokeRatePresent {
-            offset += 1
+    private static func instantaneousPaceSeconds(from data: Data) -> Int? {
+        if !rowerDataInstantaneousPaceField.isPresent(in: data) {
+            return nil
         }
 
-        let totalDistancePresent = flagsValue & 0b100 != 0
-        if totalDistancePresent {
-            offset += 3
-        }
+        var offset = 0
+        for i in 0..<fields.count {
+            let field = fields[i]
+            if field.name == rowerDataInstantaneousPaceField.name {
+                let intValue = data.readIntValue(format: field.format, offset: offset)
+                return intValue
+            }
 
-        if instantaneousPacePresent {
-            return UInt16(data[offset]) + (UInt16(data[offset + 1]) << 8)
+            if field.isPresent(in: data) {
+                offset += field.format.numberOfBytes()
+            }
         }
 
         return nil

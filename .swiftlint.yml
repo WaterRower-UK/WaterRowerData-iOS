@@ -4,3 +4,4 @@ excluded:
 
 disabled_rules:
   - identifier_name        # Only allows names with 3-40 characters
+  - switch_case_alignment  # Clashes with .idea formatting
