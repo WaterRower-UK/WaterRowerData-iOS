@@ -4,12 +4,17 @@ import XCTest
 class RowerDataCharacteristicFlags {
 
     static func create(
-        averageStrokeRatePresent: Bool = false
+        averageStrokeRatePresent: Bool = false,
+        totalDistancePresent: Bool = false
     ) -> Data {
         var flags: [Int: Bool] = [:]
 
         if averageStrokeRatePresent {
             flags[1] = true
+        }
+
+        if totalDistancePresent {
+            flags[2] = true
         }
 
         return CharacteristicFlags.createFlags(flags: flags)
