@@ -7,4 +7,5 @@ struct RowerData {
     let averageStrokeRate: Double?
     let totalDistanceMeters: Int?
     let instantaneousPaceSeconds: Int?
+    let averagePaceSeconds: Int?
 }
