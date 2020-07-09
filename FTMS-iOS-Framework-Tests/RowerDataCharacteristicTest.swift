@@ -117,4 +117,72 @@ class RowerDataCharacteristicTest: XCTestCase {
         /* Then */
         XCTAssertEqual(result.instantaneousPaceSeconds, 513)
     }
+
+    // MARK: Multiple properties present
+
+    func test_multiplePropertiesPresent_properlyOffsetsValues_forAverageStrokeRateAndTotalDistance() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(
+            averageStrokeRatePresent: true,
+            totalDistancePresent: true
+        )
+        let data = CharacteristicData.create(
+            flags: flags,
+            values: 7, // Average stroke rate of 3.5
+            16, // Total distance of 16
+            0,
+            0
+        )
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertEqual(result.averageStrokeRate, 3.5)
+        XCTAssertEqual(result.totalDistanceMeters, 16)
+    }
+
+    func test_multiplePropertiesPresent_properlyOffsetsValues_forAverageStrokeRateAndInstantaneousPace() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(
+            averageStrokeRatePresent: true,
+            instantaneousPacePresent: true
+        )
+        let data = CharacteristicData.create(
+            flags: flags,
+            values: 7, // Average stroke rate of 3.5
+            16, // Instantaneous pace of 16
+            0
+        )
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertEqual(result.averageStrokeRate, 3.5)
+        XCTAssertEqual(result.instantaneousPaceSeconds, 16)
+    }
+
+    func test_multiplePropertiesPresent_properlyOffsetsValues_forTotalDistanceAndInstantaneousPace() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(
+            totalDistancePresent: true,
+            instantaneousPacePresent: true
+        )
+        let data = CharacteristicData.create(
+            flags: flags,
+            values: 32, // Total distance of 32
+            0,
+            0,
+            16, // Instantaneous pace of 16
+            0
+        )
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertEqual(result.totalDistanceMeters, 32)
+        XCTAssertEqual(result.instantaneousPaceSeconds, 16)
+    }
 }
