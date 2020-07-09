@@ -4,6 +4,7 @@ class RowerDataCharacteristic {
 
     static func decode(data: Data) -> RowerData {
         return RowerData(
+            strokeRate: strokeRate(from: data),
             averageStrokeRate: averageStrokeRate(from: data),
             totalDistanceMeters: totalDistanceMeters(from: data),
             instantaneousPaceSeconds: instantaneousPaceSeconds(from: data)
@@ -12,10 +13,19 @@ class RowerDataCharacteristic {
 
     private static let fields: [Field] = [
         rowerDataFlagsField,
+        rowerDataStrokeRateField,
         rowerDataAverageStrokeRateField,
         rowerDataTotalDistanceField,
         rowerDataInstantaneousPaceField
     ]
+
+    private static func strokeRate(from data: Data) -> Double? {
+        guard let intValue = readIntValue(from: data, for: rowerDataStrokeRateField) else {
+            return nil
+        }
+
+        return Double(intValue) / 2.0
+    }
 
     private static func averageStrokeRate(from data: Data) -> Double? {
         guard let intValue = readIntValue(from: data, for: rowerDataAverageStrokeRateField) else {

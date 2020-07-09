@@ -4,6 +4,32 @@ import XCTest
 
 class RowerDataCharacteristicTest: XCTestCase {
 
+    // MARK: Stroke Rate
+
+    func test_strokeRate_notPresent_resultsIn_nilValue() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(moreDataPresent: false)
+        let data = CharacteristicData.create(flags: flags)
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertNil(result.strokeRate)
+    }
+
+    func test_strokeRate_present_resultsIn_uint8Value_withBinaryExponentMinusOne() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(moreDataPresent: true)
+        let data = CharacteristicData.create(flags: flags, values: 7)
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertEqual(result.strokeRate, 3.5)
+    }
+
     // MARK: Average Stroke Rate
 
     func test_averageStrokeRate_notPresent_resultsIn_nilValue() {
