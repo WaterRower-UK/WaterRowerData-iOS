@@ -800,4 +800,79 @@ class RowerDataCharacteristicTest: XCTestCase {
         XCTAssertEqual(result.totalDistanceMeters, 32)
         XCTAssertEqual(result.instantaneousPaceSeconds, 16)
     }
+
+    // This is not really representative (not enough available bytes in a real world scenario),
+    // but a good test to execute anyway to test dependencies.
+    func test_allPropertiesPresent() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(
+            moreDataPresent: true,
+            averageStrokeRatePresent: true,
+            totalDistancePresent: true,
+            instantaneousPacePresent: true,
+            averagePacePresent: true,
+            instantaneousPowerPresent: true,
+            averagePowerPresent: true,
+            resistanceLevelPresent: true,
+            expendedEnergyPresent: true,
+            heartRatePresent: true,
+            metabolicEquivalentPresent: true,
+            elapsedTimePresent: true,
+            remainingTimePresent: true
+        )
+
+        let data = CharacteristicData.create(
+            flags: flags,
+            values: 1, // Stroke rate of 0.5
+            2, // Stroke count of 2
+            0,
+            3, // Average stroke rate of 1.5
+            4, // Total distance of 4
+            0,
+            0,
+            5, // Instantaneous pace of 5
+            0,
+            6, // Average pace of 6
+            0,
+            7, // Instantaneous power of 7,
+            0,
+            8, // Average power of 8
+            0,
+            9, // Resistance level of 9
+            0,
+            10, // Total energy of 10
+            0,
+            11, // Energy per hour of 11
+            0,
+            12, // Energy per minute of 12
+            0,
+            13, // Heart rate of 13
+            14, // Metabolic equivalent of 1.4
+            15, // Elapsed time of 15
+            0,
+            16, // Time remaining of 16
+            0
+        )
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertEqual(result.strokeRate, 0.5)
+        XCTAssertEqual(result.strokeCount, 2)
+        XCTAssertEqual(result.averageStrokeRate, 1.5)
+        XCTAssertEqual(result.totalDistanceMeters, 4)
+        XCTAssertEqual(result.instantaneousPaceSeconds, 5)
+        XCTAssertEqual(result.averagePaceSeconds, 6)
+        XCTAssertEqual(result.instantaneousPowerWatts, 7)
+        XCTAssertEqual(result.averagePowerWatts, 8)
+        XCTAssertEqual(result.resistanceLevel, 9)
+        XCTAssertEqual(result.totalEnergyKiloCalories, 10)
+        XCTAssertEqual(result.energyPerHourKiloCalories, 11)
+        XCTAssertEqual(result.energyPerMinuteKiloCalories, 12)
+        XCTAssertEqual(result.heartRate, 13)
+        XCTAssertEqual(result.metabolicEquivalent, 1.4)
+        XCTAssertEqual(result.elapsedTimeSeconds, 15)
+        XCTAssertEqual(result.remainingTimeSeconds, 16)
+    }
 }
