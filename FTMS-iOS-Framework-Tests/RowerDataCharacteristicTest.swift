@@ -425,7 +425,7 @@ class RowerDataCharacteristicTest: XCTestCase {
 
     func test_totalEnergy_notPresent_resultsIn_nilValue() {
         /* Given */
-        let flags = RowerDataCharacteristicFlags.create(totalEnergyPresent: false)
+        let flags = RowerDataCharacteristicFlags.create(expendedEnergyPresent: false)
         let data = CharacteristicData.create(flags: flags)
 
         /* When */
@@ -437,8 +437,14 @@ class RowerDataCharacteristicTest: XCTestCase {
 
     func test_totalEnergy_present_resultsIn_uint16Value_forLowValue() {
         /* Given */
-        let flags = RowerDataCharacteristicFlags.create(totalEnergyPresent: true)
-        let data = CharacteristicData.create(flags: flags, values: 1, 0)
+        let flags = RowerDataCharacteristicFlags.create(expendedEnergyPresent: true)
+        let data = CharacteristicData.create(
+            flags: flags,
+            values: 1, // Total energy value 1
+            0,
+            0, // Energy per hour value
+            0
+        )
 
         /* When */
         let result = RowerDataCharacteristic.decode(data: data)
@@ -449,14 +455,70 @@ class RowerDataCharacteristicTest: XCTestCase {
 
     func test_totalEnergy_present_resultsIn_uint16Value_forHighValue() {
         /* Given */
-        let flags = RowerDataCharacteristicFlags.create(totalEnergyPresent: true)
-        let data = CharacteristicData.create(flags: flags, values: 1, 2) // 1 + 512
+        let flags = RowerDataCharacteristicFlags.create(expendedEnergyPresent: true)
+        let data = CharacteristicData.create(
+            flags: flags,
+            values: 1, // Total energy value 1 + 512
+            2,
+            0, // Energy per hour value
+            0
+        )
 
         /* When */
         let result = RowerDataCharacteristic.decode(data: data)
 
         /* Then */
         XCTAssertEqual(result.totalEnergyKiloCalories, 513)
+    }
+
+    // MARK: Energy Per Hour
+
+    func test_energyPerHour_notPresent_resultsIn_nilValue() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(expendedEnergyPresent: false)
+        let data = CharacteristicData.create(flags: flags)
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertNil(result.energyPerHourKiloCalories)
+    }
+
+    func test_energyPerHour_present_resultsIn_uint16Value_forLowValue() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(expendedEnergyPresent: true)
+        let data = CharacteristicData.create(
+            flags: flags,
+            values: 0, // Total energy value
+            0,
+            1, // Energy per hour value 1
+            0
+        )
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertEqual(result.energyPerHourKiloCalories, 1)
+    }
+
+    func test_energyPerHour_present_resultsIn_uint16Value_forHighValue() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(expendedEnergyPresent: true)
+        let data = CharacteristicData.create(
+            flags: flags,
+            values: 0, // Total energy value
+            0,
+            1, // Energy per hour value 1 + 512
+            2
+        )
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertEqual(result.energyPerHourKiloCalories, 513)
     }
 
     // MARK: Multiple properties present
