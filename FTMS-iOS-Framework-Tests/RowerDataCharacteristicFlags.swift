@@ -5,7 +5,8 @@ class RowerDataCharacteristicFlags {
 
     static func create(
         averageStrokeRatePresent: Bool = false,
-        totalDistancePresent: Bool = false
+        totalDistancePresent: Bool = false,
+        instantaneousPacePresent: Bool = false
     ) -> Data {
         var flags: [Int: Bool] = [:]
 
@@ -15,6 +16,10 @@ class RowerDataCharacteristicFlags {
 
         if totalDistancePresent {
             flags[2] = true
+        }
+
+        if instantaneousPacePresent {
+            flags[3] = true
         }
 
         return CharacteristicFlags.createFlags(flags: flags)
