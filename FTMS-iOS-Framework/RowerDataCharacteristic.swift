@@ -16,7 +16,8 @@ class RowerDataCharacteristic {
             totalEnergyKiloCalories: totalEnergy(from: data),
             energyPerHourKiloCalories: energyPerHour(from: data),
             energyPerMinuteKiloCalories: energyPerMinute(from: data),
-            heartRate: heartRate(from: data)
+            heartRate: heartRate(from: data),
+            metabolicEquivalent: metabolicEquivalent(from: data)
         )
     }
 
@@ -34,7 +35,8 @@ class RowerDataCharacteristic {
         rowerDataTotalEnergyField,
         rowerDataEnergyPerHourField,
         rowerDataEnergyPerMinuteField,
-        rowerDataHeartRateField
+        rowerDataHeartRateField,
+        rowerDataMetabolicEquivalentField
     ]
 
     private static func strokeRate(from data: Data) -> Double? {
@@ -95,6 +97,14 @@ class RowerDataCharacteristic {
 
     private static func heartRate(from data: Data) -> Int? {
         return readIntValue(from: data, for: rowerDataHeartRateField)
+    }
+
+    private static func metabolicEquivalent(from data: Data) -> Double? {
+        guard let intValue = readIntValue(from: data, for: rowerDataMetabolicEquivalentField) else {
+            return nil
+        }
+
+        return Double(intValue) / 10
     }
 
     private static func readIntValue(from data: Data, for field: Field) -> Int? {

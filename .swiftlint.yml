@@ -7,3 +7,4 @@ disabled_rules:
   - switch_case_alignment  # Clashes with .idea formatting
   - file_length            # Test files are allowed to grow large
   - type_body_length       # Again, test files.
+  - cyclomatic_complexity  # Will be handled during code review
