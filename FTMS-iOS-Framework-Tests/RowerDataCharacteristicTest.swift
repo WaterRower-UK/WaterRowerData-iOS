@@ -21,13 +21,66 @@ class RowerDataCharacteristicTest: XCTestCase {
     func test_strokeRate_present_resultsIn_uint8Value_withBinaryExponentMinusOne() {
         /* Given */
         let flags = RowerDataCharacteristicFlags.create(moreDataPresent: true)
-        let data = CharacteristicData.create(flags: flags, values: 7)
+        let data = CharacteristicData.create(
+            flags: flags,
+            values: 7, // Stroke rate of 3.5
+            0, // Stroke count value
+            0
+        )
 
         /* When */
         let result = RowerDataCharacteristic.decode(data: data)
 
         /* Then */
         XCTAssertEqual(result.strokeRate, 3.5)
+    }
+
+    // MARK: Stroke Count
+
+    func test_strokeCount_notPresent_resultsIn_nilValue() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(moreDataPresent: false)
+        let data = CharacteristicData.create(flags: flags)
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertNil(result.strokeCount)
+    }
+
+    func test_strokeCount_present_resultsIn_uint16Value_lowValue() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(moreDataPresent: true)
+        let data = CharacteristicData.create(
+            flags: flags,
+            values: 0, // Stroke Rate
+            1, // Stroke count of 1
+            0
+        )
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertEqual(result.strokeCount, 1)
+    }
+
+    func test_strokeCount_present_resultsIn_uint16Value_highValue() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(moreDataPresent: true)
+        let data = CharacteristicData.create(
+            flags: flags,
+            values: 0, // Stroke Rate
+            1, // Stroke count of 1 + 256
+            1
+        )
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertEqual(result.strokeCount, 257)
     }
 
     // MARK: Average Stroke Rate
