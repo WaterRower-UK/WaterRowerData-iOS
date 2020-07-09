@@ -1,6 +1,6 @@
 import Foundation
 
-internal extension Data {
+extension Data {
 
     func readIntValue(format: Format, offset: Int) -> Int {
         switch format {
@@ -30,15 +30,5 @@ internal extension Data {
             (unsignedByteToInt(b1) << 8) +
             (unsignedByteToInt(b2) << 16) +
             (unsignedByteToInt(b3) << 24)
-    }
-
-    private func unsignedToSigned(_ unsigned: Int, size: Int) -> Int {
-        if unsigned & (1 << (size - 1)) == 0 {
-            return unsigned
-        }
-
-        let a = 1 << size - 1
-
-        return -1 * (a - (unsigned & (a - 1)))
     }
 }

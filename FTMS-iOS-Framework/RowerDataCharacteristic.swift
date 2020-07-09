@@ -18,62 +18,36 @@ class RowerDataCharacteristic {
     ]
 
     private static func averageStrokeRate(from data: Data) -> Double? {
-        if !rowerDataAverageStrokeRateField.isPresent(in: data) {
+        guard let intValue = readIntValue(from: data, for: rowerDataAverageStrokeRateField) else {
             return nil
         }
 
-        var offset = 0
-        for i in 0..<fields.count {
-            let field = fields[i]
-            if field.name == rowerDataAverageStrokeRateField.name {
-                let intValue = data.readIntValue(format: field.format, offset: offset)
-                return Double(intValue) * (pow(2.0, -1.0))
-            }
-
-            if field.isPresent(in: data) {
-                offset += field.format.numberOfBytes()
-            }
-        }
-
-        return nil
+        return Double(intValue) / 2.0
     }
 
     private static func totalDistanceMeters(from data: Data) -> Int? {
-        if !rowerDataTotalDistanceField.isPresent(in: data) {
-            return nil
-        }
-
-        var offset = 0
-        for i in 0..<fields.count {
-            let field = fields[i]
-            if field.name == rowerDataTotalDistanceField.name {
-                let intValue = data.readIntValue(format: field.format, offset: offset)
-                return intValue
-            }
-
-            if field.isPresent(in: data) {
-                offset += field.format.numberOfBytes()
-            }
-        }
-
-        return nil
+        return readIntValue(from: data, for: rowerDataTotalDistanceField)
     }
 
     private static func instantaneousPaceSeconds(from data: Data) -> Int? {
-        if !rowerDataInstantaneousPaceField.isPresent(in: data) {
+        return readIntValue(from: data, for: rowerDataInstantaneousPaceField)
+    }
+
+    private static func readIntValue(from data: Data, for field: Field) -> Int? {
+        if !field.isPresent(in: data) {
             return nil
         }
 
         var offset = 0
         for i in 0..<fields.count {
-            let field = fields[i]
-            if field.name == rowerDataInstantaneousPaceField.name {
+            let f = fields[i]
+            if f.name == field.name {
                 let intValue = data.readIntValue(format: field.format, offset: offset)
                 return intValue
             }
 
-            if field.isPresent(in: data) {
-                offset += field.format.numberOfBytes()
+            if f.isPresent(in: data) {
+                offset += f.format.numberOfBytes()
             }
         }
 

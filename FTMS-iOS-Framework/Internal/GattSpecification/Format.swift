@@ -1,15 +1,14 @@
-internal enum Format {
+enum Format {
 
     case UInt8
     case UInt16
     case UInt24
 }
 
-internal extension Format {
+extension Format {
 
     func numberOfBytes() -> Int {
         switch self {
-
             case .UInt8:
                 return 1
             case .UInt16:

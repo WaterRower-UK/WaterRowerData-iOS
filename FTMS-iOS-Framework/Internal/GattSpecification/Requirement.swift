@@ -1,6 +1,6 @@
 import Foundation
 
-internal protocol Requirement {
+protocol Requirement {
 
     func check(in data: Data) -> Bool
 }
