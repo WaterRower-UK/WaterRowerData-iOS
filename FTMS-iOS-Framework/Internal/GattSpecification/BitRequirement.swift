@@ -6,7 +6,7 @@ struct BitRequirement: Requirement {
     let bitValue: Int
 
     func check(in data: Data) -> Bool {
-        let flagsValue = Int(data[0])
+        let flagsValue = data.readIntValue(format: .UInt16, offset: 0)
         return flagsValue & (1 << bitIndex) == (bitValue << bitIndex)
     }
 }
