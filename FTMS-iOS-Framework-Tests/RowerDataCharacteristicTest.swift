@@ -583,6 +583,35 @@ class RowerDataCharacteristicTest: XCTestCase {
         XCTAssertEqual(result.energyPerMinuteKiloCalories, 513)
     }
 
+    // MARK: Heart Rate
+
+    func test_heartRate_notPresent_resultsIn_nilValue() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(heartRatePresent: false)
+        let data = CharacteristicData.create(flags: flags)
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertNil(result.heartRate)
+    }
+
+    func test_heartRate_present_resultsIn_uint8Value() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(heartRatePresent: true)
+        let data = CharacteristicData.create(
+            flags: flags,
+            values: 170 // Heart rate of 170
+        )
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertEqual(result.heartRate, 170)
+    }
+
     // MARK: Multiple properties present
 
     func test_multiplePropertiesPresent_properlyOffsetsValues_forAverageStrokeRateAndTotalDistance() {
