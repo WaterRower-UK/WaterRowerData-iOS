@@ -15,7 +15,8 @@ class RowerDataCharacteristic {
             resistanceLevel: resistanceLevel(from: data),
             totalEnergyKiloCalories: totalEnergy(from: data),
             energyPerHourKiloCalories: energyPerHour(from: data),
-            energyPerMinuteKiloCalories: energyPerMinute(from: data)
+            energyPerMinuteKiloCalories: energyPerMinute(from: data),
+            heartRate: heartRate(from: data)
         )
     }
 
@@ -32,7 +33,8 @@ class RowerDataCharacteristic {
         rowerDataResistanceLevelField,
         rowerDataTotalEnergyField,
         rowerDataEnergyPerHourField,
-        rowerDataEnergyPerMinuteField
+        rowerDataEnergyPerMinuteField,
+        rowerDataHeartRateField
     ]
 
     private static func strokeRate(from data: Data) -> Double? {
@@ -89,6 +91,10 @@ class RowerDataCharacteristic {
 
     private static func energyPerMinute(from data: Data) -> Int? {
         return readIntValue(from: data, for: rowerDataEnergyPerMinuteField)
+    }
+
+    private static func heartRate(from data: Data) -> Int? {
+        return readIntValue(from: data, for: rowerDataHeartRateField)
     }
 
     private static func readIntValue(from data: Data, for field: Field) -> Int? {
