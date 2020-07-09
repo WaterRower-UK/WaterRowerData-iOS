@@ -421,6 +421,44 @@ class RowerDataCharacteristicTest: XCTestCase {
         XCTAssertEqual(result.resistanceLevel, -257)
     }
 
+    // MARK: Total Energy
+
+    func test_totalEnergy_notPresent_resultsIn_nilValue() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(totalEnergyPresent: false)
+        let data = CharacteristicData.create(flags: flags)
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertNil(result.totalEnergyKiloCalories)
+    }
+
+    func test_totalEnergy_present_resultsIn_uint16Value_forLowValue() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(totalEnergyPresent: true)
+        let data = CharacteristicData.create(flags: flags, values: 1, 0)
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertEqual(result.totalEnergyKiloCalories, 1)
+    }
+
+    func test_totalEnergy_present_resultsIn_uint16Value_forHighValue() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(totalEnergyPresent: true)
+        let data = CharacteristicData.create(flags: flags, values: 1, 2) // 1 + 512
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertEqual(result.totalEnergyKiloCalories, 513)
+    }
+
     // MARK: Multiple properties present
 
     func test_multiplePropertiesPresent_properlyOffsetsValues_forAverageStrokeRateAndTotalDistance() {

@@ -11,4 +11,5 @@ struct RowerData {
     let instantaneousPowerWatts: Int?
     let averagePowerWatts: Int?
     let resistanceLevel: Int?
+    let totalEnergyKiloCalories: Int?
 }
