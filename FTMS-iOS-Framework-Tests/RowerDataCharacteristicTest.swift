@@ -79,4 +79,42 @@ class RowerDataCharacteristicTest: XCTestCase {
         /* Then */
         XCTAssertEqual(result.totalDistanceMeters, 262657)
     }
+
+    // MARK: Instantaneous Pace
+
+    func test_instantaneousPace_notPresent_resultsIn_nilValue() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(instantaneousPacePresent: false)
+        let data = CharacteristicData.create(flags: flags)
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertNil(result.instantaneousPaceSeconds)
+    }
+
+    func test_instantaneousPace_notPresent_resultsIn_uint16Value_forLowValue() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(instantaneousPacePresent: true)
+        let data = CharacteristicData.create(flags: flags, values: 1, 0)
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertEqual(result.instantaneousPaceSeconds, 1)
+    }
+
+    func test_instantaneousPace_notPresent_resultsIn_uint16Value_forHighValue() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(instantaneousPacePresent: true)
+        let data = CharacteristicData.create(flags: flags, values: 1, 2) // 1 + 512
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertEqual(result.instantaneousPaceSeconds, 513)
+    }
 }
