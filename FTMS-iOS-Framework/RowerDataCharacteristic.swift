@@ -32,8 +32,14 @@ class RowerDataCharacteristic {
         let flagsValue = data[0]
         let totalDistancePresent = flagsValue & 0b100 != 0
 
+        var offset = 2
+        let averageStrokeRatePresent = flagsValue & 0b10 != 0
+        if averageStrokeRatePresent {
+            offset += 1
+        }
+
         if totalDistancePresent {
-            return UInt32(data[2]) + (UInt32(data[3]) << 8) + (UInt32(data[4]) << 16)
+            return UInt32(data[offset]) + (UInt32(data[offset + 1]) << 8) + (UInt32(data[offset + 2]) << 16)
         }
 
         return nil
@@ -43,8 +49,19 @@ class RowerDataCharacteristic {
         let flagsValue = data[0]
         let instantaneousPacePresent = flagsValue & 0b1000 != 0
 
+        var offset = 2
+        let averageStrokeRatePresent = flagsValue & 0b10 != 0
+        if averageStrokeRatePresent {
+            offset += 1
+        }
+
+        let totalDistancePresent = flagsValue & 0b100 != 0
+        if totalDistancePresent {
+            offset += 3
+        }
+
         if instantaneousPacePresent {
-            return UInt16(data[2]) + (UInt16(data[3]) << 8)
+            return UInt16(data[offset]) + (UInt16(data[offset + 1]) << 8)
         }
 
         return nil
