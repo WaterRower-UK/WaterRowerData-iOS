@@ -197,6 +197,44 @@ class RowerDataCharacteristicTest: XCTestCase {
         XCTAssertEqual(result.instantaneousPaceSeconds, 513)
     }
 
+    // MARK: Average Pace
+
+    func test_averagePace_notPresent_resultsIn_nilValue() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(averagePacePresent: false)
+        let data = CharacteristicData.create(flags: flags)
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertNil(result.averagePaceSeconds)
+    }
+
+    func test_averagePace_notPresent_resultsIn_uint16Value_forLowValue() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(averagePacePresent: true)
+        let data = CharacteristicData.create(flags: flags, values: 1, 0)
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertEqual(result.averagePaceSeconds, 1)
+    }
+
+    func test_averagePace_notPresent_resultsIn_uint16Value_forHighValue() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(averagePacePresent: true)
+        let data = CharacteristicData.create(flags: flags, values: 1, 2) // 1 + 512
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertEqual(result.averagePaceSeconds, 513)
+    }
+
     // MARK: Multiple properties present
 
     func test_multiplePropertiesPresent_properlyOffsetsValues_forAverageStrokeRateAndTotalDistance() {
