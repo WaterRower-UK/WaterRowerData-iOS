@@ -11,7 +11,8 @@ class RowerDataCharacteristic {
             instantaneousPaceSeconds: instantaneousPaceSeconds(from: data),
             averagePaceSeconds: averagePaceSeconds(from: data),
             instantaneousPowerWatts: instantaneousPower(from: data),
-            averagePowerWatts: averagePower(from: data)
+            averagePowerWatts: averagePower(from: data),
+            resistanceLevel: resistanceLevel(from: data)
         )
     }
 
@@ -24,7 +25,8 @@ class RowerDataCharacteristic {
         rowerDataInstantaneousPaceField,
         rowerDataAveragePaceField,
         rowerDataInstantaneousPowerField,
-        rowerDataAveragePowerField
+        rowerDataAveragePowerField,
+        rowerDataResistanceLevelField
     ]
 
     private static func strokeRate(from data: Data) -> Double? {
@@ -65,6 +67,10 @@ class RowerDataCharacteristic {
 
     private static func averagePower(from data: Data) -> Int? {
         return readIntValue(from: data, for: rowerDataAveragePowerField)
+    }
+
+    private static func resistanceLevel(from data: Data) -> Int? {
+        return readIntValue(from: data, for: rowerDataResistanceLevelField)
     }
 
     private static func readIntValue(from data: Data, for field: Field) -> Int? {

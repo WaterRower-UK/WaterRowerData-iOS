@@ -359,6 +359,68 @@ class RowerDataCharacteristicTest: XCTestCase {
         XCTAssertEqual(result.averagePowerWatts, -257)
     }
 
+    // MARK: Resistance level
+
+    func test_resistanceLevel_notPresent_resultsIn_nilValue() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(resistanceLevelPresent: false)
+        let data = CharacteristicData.create(flags: flags)
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertNil(result.resistanceLevel)
+    }
+
+    func test_resistanceLevel_present_resultsIn_sint16Value_forLowValue() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(resistanceLevelPresent: true)
+        let data = CharacteristicData.create(flags: flags, values: 1, 0)
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertEqual(result.resistanceLevel, 1)
+    }
+
+    func test_resistanceLevel_present_resultsIn_sint16Value_forHighValue() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(resistanceLevelPresent: true)
+        let data = CharacteristicData.create(flags: flags, values: 1, 2) // 1 + 512
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertEqual(result.resistanceLevel, 513)
+    }
+
+    func test_resistanceLevel_present_resultsIn_sint16Value_forLowNegativeValue() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(resistanceLevelPresent: true)
+        let data = CharacteristicData.create(flags: flags, values: 0b11111111, 0b11111111)
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertEqual(result.resistanceLevel, -1)
+    }
+
+    func test_resistanceLevel_present_resultsIn_sint16Value_forHighNegativeValue() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(resistanceLevelPresent: true)
+        let data = CharacteristicData.create(flags: flags, values: 0b11111111, 0b11111110)
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertEqual(result.resistanceLevel, -257)
+    }
+
     // MARK: Multiple properties present
 
     func test_multiplePropertiesPresent_properlyOffsetsValues_forAverageStrokeRateAndTotalDistance() {
