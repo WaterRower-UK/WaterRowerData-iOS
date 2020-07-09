@@ -641,6 +641,52 @@ class RowerDataCharacteristicTest: XCTestCase {
         XCTAssertEqual(result.metabolicEquivalent, 12.3)
     }
 
+    // MARK: Elapsed Time
+
+    func test_elapsedTime_notPresent_resultsIn_nilValue() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(elapsedTimePresent: false)
+        let data = CharacteristicData.create(flags: flags)
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertNil(result.elapsedTimeSeconds)
+    }
+
+    func test_elapsedTime_present_resultsIn_uint16Value_forLowValue() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(elapsedTimePresent: true)
+        let data = CharacteristicData.create(
+            flags: flags,
+            values: 3,
+            0
+        )
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertEqual(result.elapsedTimeSeconds, 3)
+    }
+
+    func test_elapsedTime_present_resultsIn_uint16Value_forHighValue() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(elapsedTimePresent: true)
+        let data = CharacteristicData.create(
+            flags: flags,
+            values: 1, // 1 + 512
+            2
+        )
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertEqual(result.elapsedTimeSeconds, 513)
+    }
+
     // MARK: Multiple properties present
 
     func test_multiplePropertiesPresent_properlyOffsetsValues_forAverageStrokeRateAndTotalDistance() {
