@@ -8,4 +8,5 @@ struct RowerData {
     let totalDistanceMeters: Int?
     let instantaneousPaceSeconds: Int?
     let averagePaceSeconds: Int?
+    let instantaneousPowerWatts: Int?
 }

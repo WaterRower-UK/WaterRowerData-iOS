@@ -211,7 +211,7 @@ class RowerDataCharacteristicTest: XCTestCase {
         XCTAssertNil(result.averagePaceSeconds)
     }
 
-    func test_averagePace_notPresent_resultsIn_uint16Value_forLowValue() {
+    func test_averagePace_present_resultsIn_uint16Value_forLowValue() {
         /* Given */
         let flags = RowerDataCharacteristicFlags.create(averagePacePresent: true)
         let data = CharacteristicData.create(flags: flags, values: 1, 0)
@@ -223,7 +223,7 @@ class RowerDataCharacteristicTest: XCTestCase {
         XCTAssertEqual(result.averagePaceSeconds, 1)
     }
 
-    func test_averagePace_notPresent_resultsIn_uint16Value_forHighValue() {
+    func test_averagePace_present_resultsIn_uint16Value_forHighValue() {
         /* Given */
         let flags = RowerDataCharacteristicFlags.create(averagePacePresent: true)
         let data = CharacteristicData.create(flags: flags, values: 1, 2) // 1 + 512
@@ -233,6 +233,68 @@ class RowerDataCharacteristicTest: XCTestCase {
 
         /* Then */
         XCTAssertEqual(result.averagePaceSeconds, 513)
+    }
+
+    // MARK: Instantaneous Power
+
+    func test_instantaneousPower_notPresent_resultsIn_nilValue() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(instantaneousPowerPresent: false)
+        let data = CharacteristicData.create(flags: flags)
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertNil(result.instantaneousPowerWatts)
+    }
+
+    func test_instantaneousPower_present_resultsIn_uint16Value_forLowValue() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(instantaneousPowerPresent: true)
+        let data = CharacteristicData.create(flags: flags, values: 1, 0)
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertEqual(result.instantaneousPowerWatts, 1)
+    }
+
+    func test_instantaneousPower_present_resultsIn_uint16Value_forHighValue() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(instantaneousPowerPresent: true)
+        let data = CharacteristicData.create(flags: flags, values: 1, 2) // 1 + 512
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertEqual(result.instantaneousPowerWatts, 513)
+    }
+
+    func test_instantaneousPower_present_resultsIn_uint16Value_forLowNegativeValue() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(instantaneousPowerPresent: true)
+        let data = CharacteristicData.create(flags: flags, values: 0b11111111, 0b11111111)
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertEqual(result.instantaneousPowerWatts, -1)
+    }
+
+    func test_instantaneousPower_present_resultsIn_uint16Value_forHighNegativeValue() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(instantaneousPowerPresent: true)
+        let data = CharacteristicData.create(flags: flags, values: 0b11111111, 0b11111110)
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertEqual(result.instantaneousPowerWatts, -257)
     }
 
     // MARK: Multiple properties present
