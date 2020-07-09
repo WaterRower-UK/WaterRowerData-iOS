@@ -9,7 +9,8 @@ class RowerDataCharacteristicFlags {
         totalDistancePresent: Bool = false,
         instantaneousPacePresent: Bool = false,
         averagePacePresent: Bool = false,
-        instantaneousPowerPresent: Bool = false
+        instantaneousPowerPresent: Bool = false,
+        averagePowerPresent: Bool = false
     ) -> Data {
         var flags: [Int: Bool] = [:]
 
@@ -35,6 +36,10 @@ class RowerDataCharacteristicFlags {
 
         if instantaneousPowerPresent {
             flags[5] = true
+        }
+
+        if averagePowerPresent {
+            flags[6] = true
         }
 
         return CharacteristicFlags.createFlags(flags: flags)
@@ -116,5 +121,16 @@ class RowerDataCharacteristicFlagsTest: XCTestCase {
 
         /* Then */
         XCTAssertEqual(result[0], UInt8("00100000", radix: 2))
+    }
+
+    func test_averagePower_present() {
+        /* When */
+        let result = RowerDataCharacteristicFlags.create(
+            moreDataPresent: true,
+            averagePowerPresent: true
+        )
+
+        /* Then */
+        XCTAssertEqual(result[0], UInt8("01000000", radix: 2))
     }
 }
