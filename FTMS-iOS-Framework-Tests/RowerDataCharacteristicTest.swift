@@ -612,6 +612,35 @@ class RowerDataCharacteristicTest: XCTestCase {
         XCTAssertEqual(result.heartRate, 170)
     }
 
+    // MARK: Metabolic Equivalent
+
+    func test_metabolicEquivalent_notPresent_resultsIn_nilValue() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(metabolicEquivalentPresent: false)
+        let data = CharacteristicData.create(flags: flags)
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertNil(result.metabolicEquivalent)
+    }
+
+    func test_metabolicEquivalent_present_resultsIn_uint8Value() {
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(metabolicEquivalentPresent: true)
+        let data = CharacteristicData.create(
+            flags: flags,
+            values: 123 // Metabolic Equivalent of 12.3
+        )
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertEqual(result.metabolicEquivalent, 12.3)
+    }
+
     // MARK: Multiple properties present
 
     func test_multiplePropertiesPresent_properlyOffsetsValues_forAverageStrokeRateAndTotalDistance() {
