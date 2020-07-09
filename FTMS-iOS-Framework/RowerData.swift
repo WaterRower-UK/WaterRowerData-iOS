@@ -10,4 +10,5 @@ struct RowerData {
     let averagePaceSeconds: Int?
     let instantaneousPowerWatts: Int?
     let averagePowerWatts: Int?
+    let resistanceLevel: Int?
 }
