@@ -1,6 +1,6 @@
 import Foundation
 
-internal struct BitRequirement: Requirement {
+struct BitRequirement: Requirement {
 
     let bitIndex: Int
     let bitValue: Int
