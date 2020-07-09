@@ -20,6 +20,7 @@
 		8C8514E824B72C1F00E29816 /* RowerDataInstantaneousPaceField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8514E724B72C1F00E29816 /* RowerDataInstantaneousPaceField.swift */; };
 		8C8514EA24B72C7500E29816 /* RowerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8514E924B72C7500E29816 /* RowerData.swift */; };
 		8C8514EC24B73D3C00E29816 /* RowerDataStrokeRateField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8514EB24B73D3C00E29816 /* RowerDataStrokeRateField.swift */; };
+		8C8514EE24B741D300E29816 /* RowerDataStrokeCountField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8514ED24B741D300E29816 /* RowerDataStrokeCountField.swift */; };
 		8CF8BC1924B60040007D9B8D /* FTMS_iOS_Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF8BC0F24B60040007D9B8D /* FTMS_iOS_Framework.framework */; };
 		8CFE4CFE24B61AEF009A3415 /* RowerDataCharacteristicTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFE4CFD24B61AEF009A3415 /* RowerDataCharacteristicTest.swift */; };
 		8CFE4D0024B61AF5009A3415 /* RowerDataCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFE4CFF24B61AF5009A3415 /* RowerDataCharacteristic.swift */; };
@@ -54,6 +55,7 @@
 		8C8514E724B72C1F00E29816 /* RowerDataInstantaneousPaceField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowerDataInstantaneousPaceField.swift; sourceTree = "<group>"; };
 		8C8514E924B72C7500E29816 /* RowerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowerData.swift; sourceTree = "<group>"; };
 		8C8514EB24B73D3C00E29816 /* RowerDataStrokeRateField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowerDataStrokeRateField.swift; sourceTree = "<group>"; };
+		8C8514ED24B741D300E29816 /* RowerDataStrokeCountField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowerDataStrokeCountField.swift; sourceTree = "<group>"; };
 		8CF8BC0F24B60040007D9B8D /* FTMS_iOS_Framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FTMS_iOS_Framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CF8BC1324B60040007D9B8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CF8BC1824B60040007D9B8D /* FTMS-iOS-Framework-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FTMS-iOS-Framework-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +125,7 @@
 			children = (
 				8C8514DF24B72AFA00E29816 /* RowerDataFlagsField.swift */,
 				8C8514EB24B73D3C00E29816 /* RowerDataStrokeRateField.swift */,
+				8C8514ED24B741D300E29816 /* RowerDataStrokeCountField.swift */,
 				8C8514E124B72B4900E29816 /* RowerDataAverageStrokeRateField.swift */,
 				8C8514E524B72BBA00E29816 /* RowerDataTotalDistanceField.swift */,
 				8C8514E724B72C1F00E29816 /* RowerDataInstantaneousPaceField.swift */,
@@ -344,6 +347,7 @@
 			files = (
 				8C8514E824B72C1F00E29816 /* RowerDataInstantaneousPaceField.swift in Sources */,
 				8C8514E624B72BBA00E29816 /* RowerDataTotalDistanceField.swift in Sources */,
+				8C8514EE24B741D300E29816 /* RowerDataStrokeCountField.swift in Sources */,
 				8C8514EC24B73D3C00E29816 /* RowerDataStrokeRateField.swift in Sources */,
 				8C8514D624B718D400E29816 /* Field.swift in Sources */,
 				8C8514DA24B719EB00E29816 /* Requirement.swift in Sources */,
