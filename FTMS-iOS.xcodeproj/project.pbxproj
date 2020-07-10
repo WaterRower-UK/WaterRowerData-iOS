@@ -32,6 +32,12 @@
 		8C85150024B7630500E29816 /* RowerDataMetabolicEquivalentField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8514FF24B7630500E29816 /* RowerDataMetabolicEquivalentField.swift */; };
 		8C85150224B764B400E29816 /* RowerDataElapsedTimeField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C85150124B764B400E29816 /* RowerDataElapsedTimeField.swift */; };
 		8C85150424B7663B00E29816 /* RowerDataRemainingTimeField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C85150324B7663B00E29816 /* RowerDataRemainingTimeField.swift */; };
+		8CB7113D24B873B800FE02E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7113C24B873B800FE02E9 /* AppDelegate.swift */; };
+		8CB7113F24B873B800FE02E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7113E24B873B800FE02E9 /* SceneDelegate.swift */; };
+		8CB7114124B873B800FE02E9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7114024B873B800FE02E9 /* ContentView.swift */; };
+		8CB7114324B873BD00FE02E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CB7114224B873BD00FE02E9 /* Assets.xcassets */; };
+		8CB7114624B873BD00FE02E9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CB7114524B873BD00FE02E9 /* Preview Assets.xcassets */; };
+		8CB7114924B873BD00FE02E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB7114724B873BD00FE02E9 /* LaunchScreen.storyboard */; };
 		8CF8BC1924B60040007D9B8D /* FTMS_iOS_Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF8BC0F24B60040007D9B8D /* FTMS_iOS_Framework.framework */; };
 		8CFE4CFE24B61AEF009A3415 /* RowerDataCharacteristicTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFE4CFD24B61AEF009A3415 /* RowerDataCharacteristicTest.swift */; };
 		8CFE4D0024B61AF5009A3415 /* RowerDataCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFE4CFF24B61AF5009A3415 /* RowerDataCharacteristic.swift */; };
@@ -78,6 +84,14 @@
 		8C8514FF24B7630500E29816 /* RowerDataMetabolicEquivalentField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowerDataMetabolicEquivalentField.swift; sourceTree = "<group>"; };
 		8C85150124B764B400E29816 /* RowerDataElapsedTimeField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowerDataElapsedTimeField.swift; sourceTree = "<group>"; };
 		8C85150324B7663B00E29816 /* RowerDataRemainingTimeField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowerDataRemainingTimeField.swift; sourceTree = "<group>"; };
+		8CB7113A24B873B800FE02E9 /* FTMS-iOS-Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FTMS-iOS-Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CB7113C24B873B800FE02E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8CB7113E24B873B800FE02E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		8CB7114024B873B800FE02E9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8CB7114224B873BD00FE02E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8CB7114524B873BD00FE02E9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8CB7114824B873BD00FE02E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8CB7114A24B873BD00FE02E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CF8BC0F24B60040007D9B8D /* FTMS_iOS_Framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FTMS_iOS_Framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CF8BC1324B60040007D9B8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CF8BC1824B60040007D9B8D /* FTMS-iOS-Framework-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FTMS-iOS-Framework-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +106,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8CB7113724B873B800FE02E9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8CF8BC0C24B60040007D9B8D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -166,11 +187,34 @@
 			path = RowerDataSpecification;
 			sourceTree = "<group>";
 		};
+		8CB7113B24B873B800FE02E9 /* FTMS-iOS-Sample */ = {
+			isa = PBXGroup;
+			children = (
+				8CB7113C24B873B800FE02E9 /* AppDelegate.swift */,
+				8CB7113E24B873B800FE02E9 /* SceneDelegate.swift */,
+				8CB7114024B873B800FE02E9 /* ContentView.swift */,
+				8CB7114224B873BD00FE02E9 /* Assets.xcassets */,
+				8CB7114724B873BD00FE02E9 /* LaunchScreen.storyboard */,
+				8CB7114A24B873BD00FE02E9 /* Info.plist */,
+				8CB7114424B873BD00FE02E9 /* Preview Content */,
+			);
+			path = "FTMS-iOS-Sample";
+			sourceTree = "<group>";
+		};
+		8CB7114424B873BD00FE02E9 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				8CB7114524B873BD00FE02E9 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		8CF8BC0524B60040007D9B8D = {
 			isa = PBXGroup;
 			children = (
 				8CF8BC1124B60040007D9B8D /* FTMS-iOS-Framework */,
 				8CF8BC1C24B60040007D9B8D /* FTMS-iOS-Framework-Tests */,
+				8CB7113B24B873B800FE02E9 /* FTMS-iOS-Sample */,
 				8CF8BC1024B60040007D9B8D /* Products */,
 				B4B306B8247AA7214047C953 /* Pods */,
 				75FACE82F3F4CA50908911B0 /* Frameworks */,
@@ -182,6 +226,7 @@
 			children = (
 				8CF8BC0F24B60040007D9B8D /* FTMS_iOS_Framework.framework */,
 				8CF8BC1824B60040007D9B8D /* FTMS-iOS-Framework-Tests.xctest */,
+				8CB7113A24B873B800FE02E9 /* FTMS-iOS-Sample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -233,6 +278,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		8CB7113924B873B800FE02E9 /* FTMS-iOS-Sample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8CB7114D24B873BD00FE02E9 /* Build configuration list for PBXNativeTarget "FTMS-iOS-Sample" */;
+			buildPhases = (
+				8CB7113624B873B800FE02E9 /* Sources */,
+				8CB7113724B873B800FE02E9 /* Frameworks */,
+				8CB7113824B873B800FE02E9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "FTMS-iOS-Sample";
+			productName = "FTMS-iOS-Sample";
+			productReference = 8CB7113A24B873B800FE02E9 /* FTMS-iOS-Sample.app */;
+			productType = "com.apple.product-type.application";
+		};
 		8CF8BC0E24B60040007D9B8D /* FTMS-iOS-Framework */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8CF8BC2324B60040007D9B8D /* Build configuration list for PBXNativeTarget "FTMS-iOS-Framework" */;
@@ -281,6 +343,9 @@
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = WaterRower;
 				TargetAttributes = {
+					8CB7113924B873B800FE02E9 = {
+						CreatedOnToolsVersion = 11.5;
+					};
 					8CF8BC0E24B60040007D9B8D = {
 						CreatedOnToolsVersion = 11.5;
 						LastSwiftMigration = 1150;
@@ -305,11 +370,22 @@
 			targets = (
 				8CF8BC0E24B60040007D9B8D /* FTMS-iOS-Framework */,
 				8CF8BC1724B60040007D9B8D /* FTMS-iOS-Framework-Tests */,
+				8CB7113924B873B800FE02E9 /* FTMS-iOS-Sample */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8CB7113824B873B800FE02E9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CB7114924B873BD00FE02E9 /* LaunchScreen.storyboard in Resources */,
+				8CB7114624B873BD00FE02E9 /* Preview Assets.xcassets in Resources */,
+				8CB7114324B873BD00FE02E9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8CF8BC0D24B60040007D9B8D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -374,6 +450,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8CB7113624B873B800FE02E9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CB7113D24B873B800FE02E9 /* AppDelegate.swift in Sources */,
+				8CB7113F24B873B800FE02E9 /* SceneDelegate.swift in Sources */,
+				8CB7114124B873B800FE02E9 /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8CF8BC0B24B60040007D9B8D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -426,7 +512,58 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		8CB7114724B873BD00FE02E9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8CB7114824B873BD00FE02E9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		8CB7114B24B873BD00FE02E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"FTMS-iOS-Sample/Preview Content\"";
+				DEVELOPMENT_TEAM = CMQS4E74X4;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "FTMS-iOS-Sample/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.waterrower.FTMS-iOS-Sample";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8CB7114C24B873BD00FE02E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"FTMS-iOS-Sample/Preview Content\"";
+				DEVELOPMENT_TEAM = CMQS4E74X4;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "FTMS-iOS-Sample/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.waterrower.FTMS-iOS-Sample";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		8CF8BC2124B60040007D9B8D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -643,6 +780,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8CB7114D24B873BD00FE02E9 /* Build configuration list for PBXNativeTarget "FTMS-iOS-Sample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8CB7114B24B873BD00FE02E9 /* Debug */,
+				8CB7114C24B873BD00FE02E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		8CF8BC0924B60040007D9B8D /* Build configuration list for PBXProject "FTMS-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

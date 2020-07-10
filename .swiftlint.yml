@@ -9,3 +9,4 @@ disabled_rules:
   - type_body_length       # Again, test files.
   - function_body_length   # And again, test files.
   - cyclomatic_complexity  # Will be handled during code review
+  - type_name              # Necessary for SwiftUI previews
