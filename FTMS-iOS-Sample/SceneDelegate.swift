@@ -1,3 +1,4 @@
+import os
 import UIKit
 import SwiftUI
 
@@ -10,30 +11,36 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         willConnectTo session: UISceneSession,
         options connectionOptions: UIScene.ConnectionOptions
     ) {
-        // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView()
+        os_log("scene willConnectToSession", type: .debug)
 
-        // Use a UIHostingController as window root view controller.
+        let devicesViewModel = DevicesViewModel()
+        let devicesView = DevicesView(viewModel: devicesViewModel)
+
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: contentView)
+            window.rootViewController = UIHostingController(rootView: devicesView)
             self.window = window
             window.makeKeyAndVisible()
         }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
+        os_log("sceneDidDisconnect", type: .debug)
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
+        os_log("sceneDidBecomeActive", type: .debug)
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
+        os_log("sceneWillResignActive", type: .debug)
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
+        os_log("sceneWillEnterForeground", type: .debug)
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
+        os_log("sceneDidEnterBackground", type: .debug)
     }
 }
