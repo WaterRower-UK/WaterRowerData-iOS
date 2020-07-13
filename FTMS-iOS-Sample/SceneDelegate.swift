@@ -1,6 +1,8 @@
 import os
+import CoreBluetooth
 import UIKit
 import SwiftUI
+import FTMS_iOS_Framework
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -19,7 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let devicesViewModel = DevicesViewModel()
         let devicesView = DevicesView(viewModel: devicesViewModel)
 
-        cancellable = scanner.startScan { result in
+        cancellable = scanner.startScan(
+            withServices: [CBUUID(nsuuid: FitnessMachineService.uuid)]
+        ) { result in
             if let name = result.peripheral.name {
                 devicesViewModel.append(
                     Device(
