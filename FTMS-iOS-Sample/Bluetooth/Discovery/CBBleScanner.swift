@@ -63,7 +63,7 @@ class CBBleScanner: BleScanner {
                     "Start scanning for peripherals: %@",
                     log: log,
                     type: .debug,
-                    String(describing: scanServiceUUIDs)
+                    scanServiceUUIDs!
                 )
             }
 

@@ -46,6 +46,9 @@
 		8CB7117D24B8AB7900FE02E9 /* Cancellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7117C24B8AB7900FE02E9 /* Cancellable.swift */; };
 		8CB7118024B8AC0700FE02E9 /* CBBleScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7117F24B8AC0700FE02E9 /* CBBleScanner.swift */; };
 		8CB7118224BC63BA00FE02E9 /* BleScanCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7118124BC63BA00FE02E9 /* BleScanCallback.swift */; };
+		8CB7118424BC9A8D00FE02E9 /* FitnessMachineService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7118324BC9A8D00FE02E9 /* FitnessMachineService.swift */; };
+		8CB7118524BC9D8100FE02E9 /* FTMS_iOS_Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF8BC0F24B60040007D9B8D /* FTMS_iOS_Framework.framework */; };
+		8CB7118624BC9D8100FE02E9 /* FTMS_iOS_Framework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF8BC0F24B60040007D9B8D /* FTMS_iOS_Framework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8CF8BC1924B60040007D9B8D /* FTMS_iOS_Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF8BC0F24B60040007D9B8D /* FTMS_iOS_Framework.framework */; };
 		8CFE4CFE24B61AEF009A3415 /* RowerDataCharacteristicTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFE4CFD24B61AEF009A3415 /* RowerDataCharacteristicTest.swift */; };
 		8CFE4D0024B61AF5009A3415 /* RowerDataCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFE4CFF24B61AF5009A3415 /* RowerDataCharacteristic.swift */; };
@@ -55,6 +58,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8CB7118724BC9D8100FE02E9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8CF8BC0624B60040007D9B8D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8CF8BC0E24B60040007D9B8D;
+			remoteInfo = "FTMS-iOS-Framework";
+		};
 		8CF8BC1A24B60040007D9B8D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8CF8BC0624B60040007D9B8D /* Project object */;
@@ -63,6 +73,20 @@
 			remoteInfo = "FTMS-iOS-Framework";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8CB7118924BC9D8100FE02E9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8CB7118624BC9D8100FE02E9 /* FTMS_iOS_Framework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		10C0190B3EFAC07B08185E4E /* Pods-FTMS-iOS-Framework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FTMS-iOS-Framework.release.xcconfig"; path = "Target Support Files/Pods-FTMS-iOS-Framework/Pods-FTMS-iOS-Framework.release.xcconfig"; sourceTree = "<group>"; };
@@ -109,6 +133,7 @@
 		8CB7117C24B8AB7900FE02E9 /* Cancellable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cancellable.swift; sourceTree = "<group>"; };
 		8CB7117F24B8AC0700FE02E9 /* CBBleScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBBleScanner.swift; sourceTree = "<group>"; };
 		8CB7118124BC63BA00FE02E9 /* BleScanCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BleScanCallback.swift; sourceTree = "<group>"; };
+		8CB7118324BC9A8D00FE02E9 /* FitnessMachineService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessMachineService.swift; sourceTree = "<group>"; };
 		8CF8BC0F24B60040007D9B8D /* FTMS_iOS_Framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FTMS_iOS_Framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CF8BC1324B60040007D9B8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CF8BC1824B60040007D9B8D /* FTMS-iOS-Framework-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FTMS-iOS-Framework-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +152,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CB7118524BC9D8100FE02E9 /* FTMS_iOS_Framework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +330,7 @@
 				8C8514E924B72C7500E29816 /* RowerData.swift */,
 				8CFE4CFF24B61AF5009A3415 /* RowerDataCharacteristic.swift */,
 				8CF8BC1324B60040007D9B8D /* Info.plist */,
+				8CB7118324BC9A8D00FE02E9 /* FitnessMachineService.swift */,
 			);
 			path = "FTMS-iOS-Framework";
 			sourceTree = "<group>";
@@ -351,10 +378,12 @@
 				8CB7113624B873B800FE02E9 /* Sources */,
 				8CB7113724B873B800FE02E9 /* Frameworks */,
 				8CB7113824B873B800FE02E9 /* Resources */,
+				8CB7118924BC9D8100FE02E9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				8CB7118824BC9D8100FE02E9 /* PBXTargetDependency */,
 			);
 			name = "FTMS-iOS-Sample";
 			productName = "FTMS-iOS-Sample";
@@ -555,6 +584,7 @@
 				8C8514F824B758B800E29816 /* RowerDataTotalEnergyField.swift in Sources */,
 				8C85150224B764B400E29816 /* RowerDataElapsedTimeField.swift in Sources */,
 				8C8514E224B72B4900E29816 /* RowerDataAverageStrokeRateField.swift in Sources */,
+				8CB7118424BC9A8D00FE02E9 /* FitnessMachineService.swift in Sources */,
 				8CFE4D0024B61AF5009A3415 /* RowerDataCharacteristic.swift in Sources */,
 				8C85150024B7630500E29816 /* RowerDataMetabolicEquivalentField.swift in Sources */,
 				8C8514EA24B72C7500E29816 /* RowerData.swift in Sources */,
@@ -579,6 +609,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8CB7118824BC9D8100FE02E9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8CF8BC0E24B60040007D9B8D /* FTMS-iOS-Framework */;
+			targetProxy = 8CB7118724BC9D8100FE02E9 /* PBXContainerItemProxy */;
+		};
 		8CF8BC1B24B60040007D9B8D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8CF8BC0E24B60040007D9B8D /* FTMS-iOS-Framework */;
