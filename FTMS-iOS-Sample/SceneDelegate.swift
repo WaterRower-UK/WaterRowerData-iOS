@@ -6,6 +6,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
+    private let scanner = CBBleScanner()
+    private var cancellable: Cancellable?
+
     func scene(
         _ scene: UIScene,
         willConnectTo session: UISceneSession,
@@ -15,6 +18,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let devicesViewModel = DevicesViewModel()
         let devicesView = DevicesView(viewModel: devicesViewModel)
+
+        cancellable = scanner.startScan { result in
+            if let name = result.peripheral.name {
+                devicesViewModel.append(
+                    Device(
+                        id: result.peripheral.identifier.uuidString,
+                        name: name
+                    )
+                )
+            }
+        }
 
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)

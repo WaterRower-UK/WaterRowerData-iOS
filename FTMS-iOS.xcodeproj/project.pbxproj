@@ -41,6 +41,11 @@
 		8CB7116F24B8A2E200FE02E9 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7116E24B8A2E200FE02E9 /* Device.swift */; };
 		8CB7117124B8A38C00FE02E9 /* DevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7117024B8A38C00FE02E9 /* DevicesView.swift */; };
 		8CB7117324B8A6BA00FE02E9 /* DevicesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7117224B8A6BA00FE02E9 /* DevicesViewModel.swift */; };
+		8CB7117924B8AAF900FE02E9 /* ScanResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7117824B8AAF900FE02E9 /* ScanResult.swift */; };
+		8CB7117B24B8AB1200FE02E9 /* BleScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7117A24B8AB1200FE02E9 /* BleScanner.swift */; };
+		8CB7117D24B8AB7900FE02E9 /* Cancellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7117C24B8AB7900FE02E9 /* Cancellable.swift */; };
+		8CB7118024B8AC0700FE02E9 /* CBBleScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7117F24B8AC0700FE02E9 /* CBBleScanner.swift */; };
+		8CB7118224BC63BA00FE02E9 /* BleScanCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7118124BC63BA00FE02E9 /* BleScanCallback.swift */; };
 		8CF8BC1924B60040007D9B8D /* FTMS_iOS_Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF8BC0F24B60040007D9B8D /* FTMS_iOS_Framework.framework */; };
 		8CFE4CFE24B61AEF009A3415 /* RowerDataCharacteristicTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFE4CFD24B61AEF009A3415 /* RowerDataCharacteristicTest.swift */; };
 		8CFE4D0024B61AF5009A3415 /* RowerDataCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFE4CFF24B61AF5009A3415 /* RowerDataCharacteristic.swift */; };
@@ -99,6 +104,11 @@
 		8CB7116E24B8A2E200FE02E9 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		8CB7117024B8A38C00FE02E9 /* DevicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesView.swift; sourceTree = "<group>"; };
 		8CB7117224B8A6BA00FE02E9 /* DevicesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesViewModel.swift; sourceTree = "<group>"; };
+		8CB7117824B8AAF900FE02E9 /* ScanResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResult.swift; sourceTree = "<group>"; };
+		8CB7117A24B8AB1200FE02E9 /* BleScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BleScanner.swift; sourceTree = "<group>"; };
+		8CB7117C24B8AB7900FE02E9 /* Cancellable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cancellable.swift; sourceTree = "<group>"; };
+		8CB7117F24B8AC0700FE02E9 /* CBBleScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBBleScanner.swift; sourceTree = "<group>"; };
+		8CB7118124BC63BA00FE02E9 /* BleScanCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BleScanCallback.swift; sourceTree = "<group>"; };
 		8CF8BC0F24B60040007D9B8D /* FTMS_iOS_Framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FTMS_iOS_Framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CF8BC1324B60040007D9B8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CF8BC1824B60040007D9B8D /* FTMS-iOS-Framework-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FTMS-iOS-Framework-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -197,7 +207,9 @@
 		8CB7113B24B873B800FE02E9 /* FTMS-iOS-Sample */ = {
 			isa = PBXGroup;
 			children = (
+				8CB7117624B8AAC100FE02E9 /* Bluetooth */,
 				8CB7117424B8AA9F00FE02E9 /* UI */,
+				8CB7117E24B8ABDE00FE02E9 /* Util */,
 				8CB7114E24B878B100FE02E9 /* FTMS-iOS-Sample.entitlements */,
 				8CB7113C24B873B800FE02E9 /* AppDelegate.swift */,
 				8CB7113E24B873B800FE02E9 /* SceneDelegate.swift */,
@@ -234,6 +246,33 @@
 				8CB7116D24B8A22300FE02E9 /* Devices */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		8CB7117624B8AAC100FE02E9 /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				8CB7117724B8AAF000FE02E9 /* Discovery */,
+			);
+			path = Bluetooth;
+			sourceTree = "<group>";
+		};
+		8CB7117724B8AAF000FE02E9 /* Discovery */ = {
+			isa = PBXGroup;
+			children = (
+				8CB7117A24B8AB1200FE02E9 /* BleScanner.swift */,
+				8CB7118124BC63BA00FE02E9 /* BleScanCallback.swift */,
+				8CB7117824B8AAF900FE02E9 /* ScanResult.swift */,
+				8CB7117F24B8AC0700FE02E9 /* CBBleScanner.swift */,
+			);
+			path = Discovery;
+			sourceTree = "<group>";
+		};
+		8CB7117E24B8ABDE00FE02E9 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				8CB7117C24B8AB7900FE02E9 /* Cancellable.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		8CF8BC0524B60040007D9B8D = {
@@ -481,12 +520,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CB7117D24B8AB7900FE02E9 /* Cancellable.swift in Sources */,
+				8CB7117B24B8AB1200FE02E9 /* BleScanner.swift in Sources */,
 				8CB7117124B8A38C00FE02E9 /* DevicesView.swift in Sources */,
 				8CB7113D24B873B800FE02E9 /* AppDelegate.swift in Sources */,
 				8CB7113F24B873B800FE02E9 /* SceneDelegate.swift in Sources */,
+				8CB7117924B8AAF900FE02E9 /* ScanResult.swift in Sources */,
 				8CB7117324B8A6BA00FE02E9 /* DevicesViewModel.swift in Sources */,
 				8CB7115424B8867F00FE02E9 /* DeviceListView.swift in Sources */,
+				8CB7118224BC63BA00FE02E9 /* BleScanCallback.swift in Sources */,
 				8CB7116F24B8A2E200FE02E9 /* Device.swift in Sources */,
+				8CB7118024B8AC0700FE02E9 /* CBBleScanner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
