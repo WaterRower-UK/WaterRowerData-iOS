@@ -543,7 +543,7 @@ class RowerDataCharacteristicTest: XCTestCase {
         XCTAssertNil(result.energyPerMinuteKiloCalories)
     }
 
-    func test_energyPerMinute_present_resultsIn_uint16Value_forLowValue() {
+    func test_energyPerMinute_present_resultsIn_uint8Value() {
         /* Given */
         let flags = RowerDataCharacteristicFlags.create(expendedEnergyPresent: true)
         let data = CharacteristicData.create(
@@ -552,8 +552,7 @@ class RowerDataCharacteristicTest: XCTestCase {
             0,
             0, // Energy per hour value
             0,
-            1, // Energy per minute value 1
-            0
+            1 // Energy per minute value 1
         )
 
         /* When */
@@ -561,26 +560,6 @@ class RowerDataCharacteristicTest: XCTestCase {
 
         /* Then */
         XCTAssertEqual(result.energyPerMinuteKiloCalories, 1)
-    }
-
-    func test_energyPerMinute_present_resultsIn_uint16Value_forHighValue() {
-        /* Given */
-        let flags = RowerDataCharacteristicFlags.create(expendedEnergyPresent: true)
-        let data = CharacteristicData.create(
-            flags: flags,
-            values: 0, // Total energy value
-            0,
-            0, // Energy per hour value
-            0,
-            1, // Energy per minute value 1 + 512
-            2
-        )
-
-        /* When */
-        let result = RowerDataCharacteristic.decode(data: data)
-
-        /* Then */
-        XCTAssertEqual(result.energyPerMinuteKiloCalories, 513)
     }
 
     // MARK: Heart Rate
@@ -845,7 +824,6 @@ class RowerDataCharacteristicTest: XCTestCase {
             11, // Energy per hour of 11
             0,
             12, // Energy per minute of 12
-            0,
             13, // Heart rate of 13
             14, // Metabolic equivalent of 1.4
             15, // Elapsed time of 15
