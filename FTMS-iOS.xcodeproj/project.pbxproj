@@ -49,6 +49,9 @@
 		8CB7118424BC9A8D00FE02E9 /* FitnessMachineService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7118324BC9A8D00FE02E9 /* FitnessMachineService.swift */; };
 		8CB7118524BC9D8100FE02E9 /* FTMS_iOS_Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF8BC0F24B60040007D9B8D /* FTMS_iOS_Framework.framework */; };
 		8CB7118624BC9D8100FE02E9 /* FTMS_iOS_Framework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF8BC0F24B60040007D9B8D /* FTMS_iOS_Framework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8CB7118D24BCA35900FE02E9 /* DeviceDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7118C24BCA35900FE02E9 /* DeviceDetailsView.swift */; };
+		8CB7118F24BCA3A400FE02E9 /* DeviceDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7118E24BCA3A400FE02E9 /* DeviceDetailsViewModel.swift */; };
+		8CB7119124BCA3D100FE02E9 /* ConnectionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7119024BCA3D100FE02E9 /* ConnectionStatus.swift */; };
 		8CF8BC1924B60040007D9B8D /* FTMS_iOS_Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF8BC0F24B60040007D9B8D /* FTMS_iOS_Framework.framework */; };
 		8CFE4CFE24B61AEF009A3415 /* RowerDataCharacteristicTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFE4CFD24B61AEF009A3415 /* RowerDataCharacteristicTest.swift */; };
 		8CFE4D0024B61AF5009A3415 /* RowerDataCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFE4CFF24B61AF5009A3415 /* RowerDataCharacteristic.swift */; };
@@ -134,6 +137,9 @@
 		8CB7117F24B8AC0700FE02E9 /* CBBleScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBBleScanner.swift; sourceTree = "<group>"; };
 		8CB7118124BC63BA00FE02E9 /* BleScanCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BleScanCallback.swift; sourceTree = "<group>"; };
 		8CB7118324BC9A8D00FE02E9 /* FitnessMachineService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessMachineService.swift; sourceTree = "<group>"; };
+		8CB7118C24BCA35900FE02E9 /* DeviceDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetailsView.swift; sourceTree = "<group>"; };
+		8CB7118E24BCA3A400FE02E9 /* DeviceDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetailsViewModel.swift; sourceTree = "<group>"; };
+		8CB7119024BCA3D100FE02E9 /* ConnectionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionStatus.swift; sourceTree = "<group>"; };
 		8CF8BC0F24B60040007D9B8D /* FTMS_iOS_Framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FTMS_iOS_Framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CF8BC1324B60040007D9B8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CF8BC1824B60040007D9B8D /* FTMS-iOS-Framework-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FTMS-iOS-Framework-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -269,6 +275,7 @@
 		8CB7117424B8AA9F00FE02E9 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				8CB7118B24BCA32F00FE02E9 /* DeviceDetails */,
 				8CB7116D24B8A22300FE02E9 /* Devices */,
 			);
 			path = UI;
@@ -299,6 +306,16 @@
 				8CB7117C24B8AB7900FE02E9 /* Cancellable.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		8CB7118B24BCA32F00FE02E9 /* DeviceDetails */ = {
+			isa = PBXGroup;
+			children = (
+				8CB7119024BCA3D100FE02E9 /* ConnectionStatus.swift */,
+				8CB7118E24BCA3A400FE02E9 /* DeviceDetailsViewModel.swift */,
+				8CB7118C24BCA35900FE02E9 /* DeviceDetailsView.swift */,
+			);
+			path = DeviceDetails;
 			sourceTree = "<group>";
 		};
 		8CF8BC0524B60040007D9B8D = {
@@ -550,16 +567,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CB7117D24B8AB7900FE02E9 /* Cancellable.swift in Sources */,
+				8CB7118F24BCA3A400FE02E9 /* DeviceDetailsViewModel.swift in Sources */,
 				8CB7117B24B8AB1200FE02E9 /* BleScanner.swift in Sources */,
 				8CB7117124B8A38C00FE02E9 /* DevicesView.swift in Sources */,
 				8CB7113D24B873B800FE02E9 /* AppDelegate.swift in Sources */,
 				8CB7113F24B873B800FE02E9 /* SceneDelegate.swift in Sources */,
 				8CB7117924B8AAF900FE02E9 /* ScanResult.swift in Sources */,
+				8CB7119124BCA3D100FE02E9 /* ConnectionStatus.swift in Sources */,
 				8CB7117324B8A6BA00FE02E9 /* DevicesViewModel.swift in Sources */,
 				8CB7115424B8867F00FE02E9 /* DeviceListView.swift in Sources */,
 				8CB7118224BC63BA00FE02E9 /* BleScanCallback.swift in Sources */,
 				8CB7116F24B8A2E200FE02E9 /* Device.swift in Sources */,
 				8CB7118024B8AC0700FE02E9 /* CBBleScanner.swift in Sources */,
+				8CB7118D24BCA35900FE02E9 /* DeviceDetailsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

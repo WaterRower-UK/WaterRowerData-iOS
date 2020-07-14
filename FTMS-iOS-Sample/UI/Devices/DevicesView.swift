@@ -5,10 +5,8 @@ struct DevicesView: View {
     @ObservedObject var viewModel: DevicesViewModel
 
     var body: some View {
-        VStack {
-            Text("Available devices")
-            DeviceListView(devices: $viewModel.devices)
-        }
+        DeviceListView(devices: $viewModel.devices)
+            .navigationBarTitle("Available devices")
     }
 }
 
