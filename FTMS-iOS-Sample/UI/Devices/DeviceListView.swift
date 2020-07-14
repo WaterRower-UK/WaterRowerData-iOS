@@ -6,7 +6,11 @@ struct DeviceListView: View {
 
     var body: some View {
         List(devices) { device in
-            Text(device.name)
+            NavigationLink(
+                destination: DeviceDetailsView(viewModel: DeviceDetailsViewModel(deviceName: device.name))
+            ) {
+                Text(device.name)
+            }
         }
     }
 }
