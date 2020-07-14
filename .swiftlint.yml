@@ -10,3 +10,5 @@ disabled_rules:
   - function_body_length   # And again, test files.
   - cyclomatic_complexity  # Will be handled during code review
   - type_name              # Necessary for SwiftUI previews
+  - nesting                # Nesting is perfect for grouping
+  - todo                   # We can't implement everything at once
