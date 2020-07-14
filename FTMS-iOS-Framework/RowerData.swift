@@ -1,6 +1,6 @@
 import Foundation
 
-struct RowerData {
+public struct RowerData {
 
     let strokeRate: Double?
     let strokeCount: Int?

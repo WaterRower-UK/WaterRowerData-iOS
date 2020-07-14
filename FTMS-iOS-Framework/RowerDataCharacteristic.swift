@@ -1,8 +1,10 @@
 import Foundation
 
-class RowerDataCharacteristic {
+public class RowerDataCharacteristic {
 
-    static func decode(data: Data) -> RowerData {
+    public static let uuid = UUID(uuidString: "00002AD1-0000-1000-8000-00805F9B34FB")!
+
+    public static func decode(data: Data) -> RowerData {
         return RowerData(
             strokeRate: strokeRate(from: data),
             strokeCount: strokeCount(from: data),
