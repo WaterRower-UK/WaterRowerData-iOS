@@ -5,7 +5,7 @@ let rowerDataEnergyPerMinuteField: Field = RowerDataEnergyPerMinuteField()
 private struct RowerDataEnergyPerMinuteField: Field {
 
     var name = "Energy Per Minute"
-    var format: Format = .UInt16
+    var format: Format = .UInt8
 
     private let requirement = BitRequirement(bitIndex: 8, bitValue: 1)
 
