@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             if let name = result.peripheral.name {
                 devicesViewModel.append(
                     Device(
-                        id: result.peripheral.identifier.uuidString,
+                        id: result.peripheral.identifier,
                         name: name
                     )
                 )

@@ -80,7 +80,7 @@ class CBBleScanner: BleScanner {
             advertisementData: [String: Any],
             rssi RSSI: NSNumber
         ) {
-            os_log("centralManagerDidDiscover %@", log: log, type: .debug, "\(peripheral)")
+            // os_log("centralManagerDidDiscover %@", log: log, type: .debug, "\(peripheral)")
 
             callback.onScanResult(
                 ScanResult(

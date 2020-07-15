@@ -2,20 +2,20 @@ import Foundation
 
 public struct RowerData {
 
-    let strokeRate: Double?
-    let strokeCount: Int?
-    let averageStrokeRate: Double?
-    let totalDistanceMeters: Int?
-    let instantaneousPaceSeconds: Int?
-    let averagePaceSeconds: Int?
-    let instantaneousPowerWatts: Int?
-    let averagePowerWatts: Int?
-    let resistanceLevel: Int?
-    let totalEnergyKiloCalories: Int?
-    let energyPerHourKiloCalories: Int?
-    let energyPerMinuteKiloCalories: Int?
-    let heartRate: Int?
-    let metabolicEquivalent: Double?
-    let elapsedTimeSeconds: Int?
-    let remainingTimeSeconds: Int?
+    public let strokeRate: Double?
+    public let strokeCount: Int?
+    public let averageStrokeRate: Double?
+    public let totalDistanceMeters: Int?
+    public let instantaneousPaceSeconds: Int?
+    public let averagePaceSeconds: Int?
+    public let instantaneousPowerWatts: Int?
+    public let averagePowerWatts: Int?
+    public let resistanceLevel: Int?
+    public let totalEnergyKiloCalories: Int?
+    public let energyPerHourKiloCalories: Int?
+    public let energyPerMinuteKiloCalories: Int?
+    public let heartRate: Int?
+    public let metabolicEquivalent: Double?
+    public let elapsedTimeSeconds: Int?
+    public let remainingTimeSeconds: Int?
 }

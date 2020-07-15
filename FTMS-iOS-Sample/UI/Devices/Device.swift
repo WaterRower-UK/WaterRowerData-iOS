@@ -2,6 +2,6 @@ import Foundation
 
 struct Device: Identifiable {
 
-    let id: String
+    let id: UUID
     let name: String
 }
