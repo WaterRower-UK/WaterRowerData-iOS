@@ -7,7 +7,7 @@ struct DeviceListView: View {
     var body: some View {
         List(devices) { device in
             NavigationLink(
-                destination: DeviceDetailsView(viewModel: DeviceDetailsViewModel(deviceName: device.name))
+                destination: DeviceDetailsView(viewModel: DeviceDetailsViewModel(device))
             ) {
                 Text(device.name)
             }

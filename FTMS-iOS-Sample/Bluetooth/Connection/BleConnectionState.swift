@@ -2,8 +2,8 @@ import Foundation
 
 enum BleConnectionState {
 
-    case Disconnected
-    case Connecting
-    case Connected(device: ConnectedBleDevice)
-    case Failed
+    case disconnected
+    case connecting
+    case connected(device: ConnectedBleDevice)
+    case failed
 }

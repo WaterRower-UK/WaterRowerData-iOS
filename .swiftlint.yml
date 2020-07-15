@@ -12,3 +12,4 @@ disabled_rules:
   - type_name              # Necessary for SwiftUI previews
   - nesting                # Nesting is perfect for grouping
   - todo                   # We can't implement everything at once
+  - multiple_closures_with_trailing_closure # This is recommended with SwiftUI
