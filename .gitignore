@@ -3,6 +3,7 @@ xcuserdata/
 
 # Build files
 build/
+.build/
 
 # Pod files
 Pods/
