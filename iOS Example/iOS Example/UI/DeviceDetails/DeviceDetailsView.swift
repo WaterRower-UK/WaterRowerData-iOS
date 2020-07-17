@@ -1,5 +1,5 @@
 import SwiftUI
-import WaterRowerData_iOS
+import WaterRowerData_BLE
 
 struct DeviceDetailsView: View {
 

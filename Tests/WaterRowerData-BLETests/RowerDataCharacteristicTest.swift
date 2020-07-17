@@ -1,6 +1,6 @@
 import XCTest
 
-@testable import WaterRowerData_iOS
+@testable import WaterRowerData_BLE
 
 class RowerDataCharacteristicTest: XCTestCase {
 

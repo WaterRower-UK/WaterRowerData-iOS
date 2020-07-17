@@ -9,20 +9,20 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "WaterRowerData-iOS",
-            targets: ["WaterRowerData-iOS"]
-        ),
+            name: "WaterRowerData-BLE",
+            targets: ["WaterRowerData-BLE"]
+        )
     ],
     dependencies: [
     ],
     targets: [
         .target(
-            name: "WaterRowerData-iOS",
+            name: "WaterRowerData-BLE",
             dependencies: []
         ),
         .testTarget(
-            name: "WaterRowerData-iOSTests",
-            dependencies: ["WaterRowerData-iOS"]
-        ),
+            name: "WaterRowerData-BLETests",
+            dependencies: ["WaterRowerData-BLE"]
+        )
     ]
 )

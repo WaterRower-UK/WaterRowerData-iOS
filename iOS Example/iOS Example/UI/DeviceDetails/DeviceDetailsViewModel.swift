@@ -1,6 +1,6 @@
 import Foundation
 import SwiftUI
-import WaterRowerData_iOS
+import WaterRowerData_BLE
 
 class DeviceDetailsViewModel: ObservableObject {
 

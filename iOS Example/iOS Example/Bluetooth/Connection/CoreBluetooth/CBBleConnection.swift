@@ -1,7 +1,7 @@
 import Foundation
 import CoreBluetooth
 import os
-import WaterRowerData_iOS
+import WaterRowerData_BLE
 
 private let log = OSLog(subsystem: "uk.co.waterrower.bluetooth.plist", category: "CBBleConnection")
 
