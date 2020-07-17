@@ -1,6 +1,6 @@
 import Foundation
 import CoreBluetooth
-import WaterRowerData_iOS
+import WaterRowerData_BLE
 
 class ConnectedRowerDataBleDevice {
 

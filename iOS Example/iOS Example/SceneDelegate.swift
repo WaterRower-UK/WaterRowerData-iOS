@@ -2,7 +2,7 @@ import os
 import CoreBluetooth
 import UIKit
 import SwiftUI
-import WaterRowerData_iOS
+import WaterRowerData_BLE
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 

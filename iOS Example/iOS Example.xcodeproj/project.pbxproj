@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C40E19E24BF5623004AE938 /* WaterRowerData-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = 8C40E19D24BF5623004AE938 /* WaterRowerData-iOS */; };
 		8C40E20A24BF57D0004AE938 /* DeviceDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40E1E424BF57D0004AE938 /* DeviceDetailsViewModel.swift */; };
 		8C40E20B24BF57D0004AE938 /* ConnectionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40E1E524BF57D0004AE938 /* ConnectionStatus.swift */; };
 		8C40E20C24BF57D0004AE938 /* DeviceDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40E1E624BF57D0004AE938 /* DeviceDetailsView.swift */; };
@@ -34,6 +33,7 @@
 		8C40E22124BF57D0004AE938 /* ConnectedRowerDataBleDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40E20524BF57D0004AE938 /* ConnectedRowerDataBleDevice.swift */; };
 		8C40E22224BF57D0004AE938 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40E20724BF57D0004AE938 /* AppDelegate.swift */; };
 		8C40E22324BF57D0004AE938 /* Cancellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40E20924BF57D0004AE938 /* Cancellable.swift */; };
+		8CA305E524C1BC480073B763 /* WaterRowerData-BLE in Frameworks */ = {isa = PBXBuildFile; productRef = 8CA305E424C1BC480073B763 /* WaterRowerData-BLE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,7 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C40E19E24BF5623004AE938 /* WaterRowerData-iOS in Frameworks */,
+				8CA305E524C1BC480073B763 /* WaterRowerData-BLE in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,7 +250,7 @@
 			);
 			name = "iOS Example";
 			packageProductDependencies = (
-				8C40E19D24BF5623004AE938 /* WaterRowerData-iOS */,
+				8CA305E424C1BC480073B763 /* WaterRowerData-BLE */,
 			);
 			productName = "iOS Example";
 			productReference = 8C40E18524BF555C004AE938 /* iOS Example.app */;
@@ -535,9 +535,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		8C40E19D24BF5623004AE938 /* WaterRowerData-iOS */ = {
+		8CA305E424C1BC480073B763 /* WaterRowerData-BLE */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = "WaterRowerData-iOS";
+			productName = "WaterRowerData-BLE";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
