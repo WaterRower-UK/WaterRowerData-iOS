@@ -1,9 +1,37 @@
 import Foundation
 
+/**
+ A class that can decode raw bytes into `RowerData` instances.
+ 
+ This class follows the Rower Data characteristic specification
+ as described in section 4.8 "Rower Data" of the
+ Fitness Machine Service (FTMS) Bluetooth Service specification,
+ revision v1.0.
+ 
+ A copy of this specification can be found on
+ https://www.bluetooth.com/specifications/gatt/
+ */
 public class RowerDataCharacteristic {
 
+    /**
+     The UUID value that identifies this characteristic.
+     */
     public static let uuid = UUID(uuidString: "00002AD1-0000-1000-8000-00805F9B34FB")!
 
+    /**
+     Decodes given `data` into a `RowerData` instance.
+     
+     Due to restrictions in the byte buffer size some of the `RowerData`
+     properties will be absent, which is represented as a `nil` value.
+     
+     - Parameter data: A `Data` instance that contains the encoded data
+                       as described in the Rower Data characteristic
+                       specification.
+     
+     - Returns: A `RowerData` instance with the decoded properties.
+                Properties will be `nil` if not present in the encoded
+                data.
+     */
     public static func decode(data: Data) -> RowerData {
         return RowerData(
             strokeRate: strokeRate(from: data),

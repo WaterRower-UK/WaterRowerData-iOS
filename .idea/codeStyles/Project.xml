@@ -1,5 +1,6 @@
 <component name="ProjectCodeStyleConfiguration">
   <code_scheme name="Project" version="173">
+    <option name="SOFT_MARGINS" value="80" />
     <SwiftCodeStyleSettings>
       <option name="SPACE_AFTER_OPERATOR_IN_FUNCTION_DECLARATIONS" value="true" />
       <option name="INDENT_DIRECTIVE_CHILDREN" value="true" />
