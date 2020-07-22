@@ -20,7 +20,7 @@ Once connected to a WaterRower monitor and receiving data
 (see ['Receiving data'](#receiving-data)), you'll receive the data as a [`Data`
 byte buffer](https://developer.apple.com/documentation/foundation/data).  
 You can pass this `Data` instance into the static 
-`RowerData.decode(data: Data)` function to decode the bytes
+`RowerDataCharacteristic.decode(data: Data)` function to decode the bytes
 into a `RowerData` struct:
 
 ```swift
@@ -43,9 +43,12 @@ func peripheral(
 ```
 
 This `RowerData` struct will contain the rower data that
-was encode in the `Data` byte buffer.
+was encoded in the `Data` byte buffer.
 
-> :warning: &ensp; **Note**:  A single `Data` byte buffer instance does not always contain _all_ data values. Due to restrictions in buffer size some of the `RowerData` properties will be absent, which is represented as a `nil` value.
+> :warning: &ensp; **Note**:  A single `Data` byte buffer instance does not always 
+contain _all_ data values. 
+Due to restrictions in buffer size some of the `RowerData` properties will be absent,
+which is represented as a `nil` value.
 
 
 ## Receiving data
