@@ -19,20 +19,16 @@
 		8C40E21324BF57D0004AE938 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C40E1EF24BF57D0004AE938 /* LaunchScreen.storyboard */; };
 		8C40E21424BF57D0004AE938 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C40E1F224BF57D0004AE938 /* Preview Assets.xcassets */; };
 		8C40E21524BF57D0004AE938 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C40E1F324BF57D0004AE938 /* Assets.xcassets */; };
-		8C40E21624BF57D0004AE938 /* BleConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40E1F624BF57D0004AE938 /* BleConnection.swift */; };
-		8C40E21724BF57D0004AE938 /* CBBleConnectionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40E1F824BF57D0004AE938 /* CBBleConnectionFactory.swift */; };
-		8C40E21824BF57D0004AE938 /* CBConnectedBleDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40E1F924BF57D0004AE938 /* CBConnectedBleDevice.swift */; };
-		8C40E21924BF57D0004AE938 /* CBBleConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40E1FA24BF57D0004AE938 /* CBBleConnection.swift */; };
-		8C40E21A24BF57D0004AE938 /* ConnectedBleDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40E1FB24BF57D0004AE938 /* ConnectedBleDevice.swift */; };
-		8C40E21B24BF57D0004AE938 /* BleConnectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40E1FC24BF57D0004AE938 /* BleConnectionState.swift */; };
-		8C40E21C24BF57D0004AE938 /* BleConnectionStateListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40E1FD24BF57D0004AE938 /* BleConnectionStateListener.swift */; };
-		8C40E21D24BF57D0004AE938 /* CBBleScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40E20024BF57D0004AE938 /* CBBleScanner.swift */; };
-		8C40E21E24BF57D0004AE938 /* BleScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40E20124BF57D0004AE938 /* BleScanner.swift */; };
-		8C40E21F24BF57D0004AE938 /* ScanResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40E20224BF57D0004AE938 /* ScanResult.swift */; };
-		8C40E22024BF57D0004AE938 /* BleScanCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40E20324BF57D0004AE938 /* BleScanCallback.swift */; };
-		8C40E22124BF57D0004AE938 /* ConnectedRowerDataBleDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40E20524BF57D0004AE938 /* ConnectedRowerDataBleDevice.swift */; };
+		8C40E21724BF57D0004AE938 /* CBConnectionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40E1F824BF57D0004AE938 /* CBConnectionFactory.swift */; };
+		8C40E21824BF57D0004AE938 /* CBConnectedDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40E1F924BF57D0004AE938 /* CBConnectedDevice.swift */; };
+		8C40E21924BF57D0004AE938 /* CBConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40E1FA24BF57D0004AE938 /* CBConnection.swift */; };
+		8C40E21B24BF57D0004AE938 /* CBConnectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40E1FC24BF57D0004AE938 /* CBConnectionState.swift */; };
+		8C40E21C24BF57D0004AE938 /* CBConnectionStateListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40E1FD24BF57D0004AE938 /* CBConnectionStateListener.swift */; };
+		8C40E21F24BF57D0004AE938 /* CBScanResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40E20224BF57D0004AE938 /* CBScanResult.swift */; };
+		8C40E22124BF57D0004AE938 /* ConnectedRowerDataDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40E20524BF57D0004AE938 /* ConnectedRowerDataDevice.swift */; };
 		8C40E22224BF57D0004AE938 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40E20724BF57D0004AE938 /* AppDelegate.swift */; };
 		8C40E22324BF57D0004AE938 /* Cancellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C40E20924BF57D0004AE938 /* Cancellable.swift */; };
+		8C66A09A24C99B07006DD6AE /* CBScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C66A09924C99B07006DD6AE /* CBScanner.swift */; };
 		8CA305E524C1BC480073B763 /* WaterRowerData-BLE in Frameworks */ = {isa = PBXBuildFile; productRef = 8CA305E424C1BC480073B763 /* WaterRowerData-BLE */; };
 /* End PBXBuildFile section */
 
@@ -50,21 +46,17 @@
 		8C40E1F024BF57D0004AE938 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C40E1F224BF57D0004AE938 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8C40E1F324BF57D0004AE938 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8C40E1F624BF57D0004AE938 /* BleConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BleConnection.swift; sourceTree = "<group>"; };
-		8C40E1F824BF57D0004AE938 /* CBBleConnectionFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBBleConnectionFactory.swift; sourceTree = "<group>"; };
-		8C40E1F924BF57D0004AE938 /* CBConnectedBleDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBConnectedBleDevice.swift; sourceTree = "<group>"; };
-		8C40E1FA24BF57D0004AE938 /* CBBleConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBBleConnection.swift; sourceTree = "<group>"; };
-		8C40E1FB24BF57D0004AE938 /* ConnectedBleDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectedBleDevice.swift; sourceTree = "<group>"; };
-		8C40E1FC24BF57D0004AE938 /* BleConnectionState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BleConnectionState.swift; sourceTree = "<group>"; };
-		8C40E1FD24BF57D0004AE938 /* BleConnectionStateListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BleConnectionStateListener.swift; sourceTree = "<group>"; };
-		8C40E20024BF57D0004AE938 /* CBBleScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBBleScanner.swift; sourceTree = "<group>"; };
-		8C40E20124BF57D0004AE938 /* BleScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BleScanner.swift; sourceTree = "<group>"; };
-		8C40E20224BF57D0004AE938 /* ScanResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanResult.swift; sourceTree = "<group>"; };
-		8C40E20324BF57D0004AE938 /* BleScanCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BleScanCallback.swift; sourceTree = "<group>"; };
-		8C40E20524BF57D0004AE938 /* ConnectedRowerDataBleDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectedRowerDataBleDevice.swift; sourceTree = "<group>"; };
+		8C40E1F824BF57D0004AE938 /* CBConnectionFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBConnectionFactory.swift; sourceTree = "<group>"; };
+		8C40E1F924BF57D0004AE938 /* CBConnectedDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBConnectedDevice.swift; sourceTree = "<group>"; };
+		8C40E1FA24BF57D0004AE938 /* CBConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBConnection.swift; sourceTree = "<group>"; };
+		8C40E1FC24BF57D0004AE938 /* CBConnectionState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBConnectionState.swift; sourceTree = "<group>"; };
+		8C40E1FD24BF57D0004AE938 /* CBConnectionStateListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBConnectionStateListener.swift; sourceTree = "<group>"; };
+		8C40E20224BF57D0004AE938 /* CBScanResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBScanResult.swift; sourceTree = "<group>"; };
+		8C40E20524BF57D0004AE938 /* ConnectedRowerDataDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectedRowerDataDevice.swift; sourceTree = "<group>"; };
 		8C40E20624BF57D0004AE938 /* iOS Example.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "iOS Example.entitlements"; sourceTree = "<group>"; };
 		8C40E20724BF57D0004AE938 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C40E20924BF57D0004AE938 /* Cancellable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cancellable.swift; sourceTree = "<group>"; };
+		8C66A09924C99B07006DD6AE /* CBScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBScanner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,48 +171,28 @@
 		8C40E1F524BF57D0004AE938 /* Connection */ = {
 			isa = PBXGroup;
 			children = (
-				8C40E1F624BF57D0004AE938 /* BleConnection.swift */,
-				8C40E1F724BF57D0004AE938 /* CoreBluetooth */,
-				8C40E1FB24BF57D0004AE938 /* ConnectedBleDevice.swift */,
-				8C40E1FC24BF57D0004AE938 /* BleConnectionState.swift */,
-				8C40E1FD24BF57D0004AE938 /* BleConnectionStateListener.swift */,
+				8C40E1FA24BF57D0004AE938 /* CBConnection.swift */,
+				8C40E1F824BF57D0004AE938 /* CBConnectionFactory.swift */,
+				8C40E1FC24BF57D0004AE938 /* CBConnectionState.swift */,
+				8C40E1FD24BF57D0004AE938 /* CBConnectionStateListener.swift */,
+				8C40E1F924BF57D0004AE938 /* CBConnectedDevice.swift */,
 			);
 			path = Connection;
-			sourceTree = "<group>";
-		};
-		8C40E1F724BF57D0004AE938 /* CoreBluetooth */ = {
-			isa = PBXGroup;
-			children = (
-				8C40E1F824BF57D0004AE938 /* CBBleConnectionFactory.swift */,
-				8C40E1F924BF57D0004AE938 /* CBConnectedBleDevice.swift */,
-				8C40E1FA24BF57D0004AE938 /* CBBleConnection.swift */,
-			);
-			path = CoreBluetooth;
 			sourceTree = "<group>";
 		};
 		8C40E1FE24BF57D0004AE938 /* Discovery */ = {
 			isa = PBXGroup;
 			children = (
-				8C40E1FF24BF57D0004AE938 /* CoreBluetooth */,
-				8C40E20124BF57D0004AE938 /* BleScanner.swift */,
-				8C40E20224BF57D0004AE938 /* ScanResult.swift */,
-				8C40E20324BF57D0004AE938 /* BleScanCallback.swift */,
+				8C66A09924C99B07006DD6AE /* CBScanner.swift */,
+				8C40E20224BF57D0004AE938 /* CBScanResult.swift */,
 			);
 			path = Discovery;
-			sourceTree = "<group>";
-		};
-		8C40E1FF24BF57D0004AE938 /* CoreBluetooth */ = {
-			isa = PBXGroup;
-			children = (
-				8C40E20024BF57D0004AE938 /* CBBleScanner.swift */,
-			);
-			path = CoreBluetooth;
 			sourceTree = "<group>";
 		};
 		8C40E20424BF57D0004AE938 /* RowerData */ = {
 			isa = PBXGroup;
 			children = (
-				8C40E20524BF57D0004AE938 /* ConnectedRowerDataBleDevice.swift */,
+				8C40E20524BF57D0004AE938 /* ConnectedRowerDataDevice.swift */,
 			);
 			path = RowerData;
 			sourceTree = "<group>";
@@ -309,28 +281,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C40E21624BF57D0004AE938 /* BleConnection.swift in Sources */,
-				8C40E22024BF57D0004AE938 /* BleScanCallback.swift in Sources */,
 				8C40E20A24BF57D0004AE938 /* DeviceDetailsViewModel.swift in Sources */,
 				8C40E20B24BF57D0004AE938 /* ConnectionStatus.swift in Sources */,
 				8C40E20D24BF57D0004AE938 /* DeviceListView.swift in Sources */,
 				8C40E20C24BF57D0004AE938 /* DeviceDetailsView.swift in Sources */,
-				8C40E21724BF57D0004AE938 /* CBBleConnectionFactory.swift in Sources */,
+				8C40E21724BF57D0004AE938 /* CBConnectionFactory.swift in Sources */,
 				8C40E20F24BF57D0004AE938 /* DevicesViewModel.swift in Sources */,
-				8C40E21824BF57D0004AE938 /* CBConnectedBleDevice.swift in Sources */,
-				8C40E21E24BF57D0004AE938 /* BleScanner.swift in Sources */,
-				8C40E21924BF57D0004AE938 /* CBBleConnection.swift in Sources */,
-				8C40E21B24BF57D0004AE938 /* BleConnectionState.swift in Sources */,
-				8C40E21F24BF57D0004AE938 /* ScanResult.swift in Sources */,
-				8C40E21A24BF57D0004AE938 /* ConnectedBleDevice.swift in Sources */,
-				8C40E21C24BF57D0004AE938 /* BleConnectionStateListener.swift in Sources */,
+				8C40E21824BF57D0004AE938 /* CBConnectedDevice.swift in Sources */,
+				8C40E21924BF57D0004AE938 /* CBConnection.swift in Sources */,
+				8C40E21B24BF57D0004AE938 /* CBConnectionState.swift in Sources */,
+				8C40E21F24BF57D0004AE938 /* CBScanResult.swift in Sources */,
+				8C66A09A24C99B07006DD6AE /* CBScanner.swift in Sources */,
+				8C40E21C24BF57D0004AE938 /* CBConnectionStateListener.swift in Sources */,
 				8C40E20E24BF57D0004AE938 /* Device.swift in Sources */,
 				8C40E21024BF57D0004AE938 /* DevicesView.swift in Sources */,
-				8C40E22124BF57D0004AE938 /* ConnectedRowerDataBleDevice.swift in Sources */,
+				8C40E22124BF57D0004AE938 /* ConnectedRowerDataDevice.swift in Sources */,
 				8C40E22324BF57D0004AE938 /* Cancellable.swift in Sources */,
 				8C40E22224BF57D0004AE938 /* AppDelegate.swift in Sources */,
 				8C40E21124BF57D0004AE938 /* SceneDelegate.swift in Sources */,
-				8C40E21D24BF57D0004AE938 /* CBBleScanner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,7 +1,7 @@
 import Foundation
 import CoreBluetooth
 
-struct ScanResult {
+struct CBScanResult {
 
     let peripheral: CBPeripheral
     let advertisementData: [String: Any]

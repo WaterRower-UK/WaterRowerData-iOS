@@ -2,11 +2,11 @@ import Foundation
 import CoreBluetooth
 import WaterRowerData_BLE
 
-class ConnectedRowerDataBleDevice {
+class ConnectedRowerDataDevice {
 
-    private let connectedBleDevice: ConnectedBleDevice
+    private let connectedBleDevice: CBConnectedDevice
 
-    init(from device: ConnectedBleDevice) {
+    init(from device: CBConnectedDevice) {
         self.connectedBleDevice = device
     }
 
