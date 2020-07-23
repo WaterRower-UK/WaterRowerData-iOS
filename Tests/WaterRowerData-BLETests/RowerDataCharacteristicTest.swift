@@ -475,6 +475,31 @@ class RowerDataCharacteristicTest: XCTestCase {
         XCTAssertEqual(result.totalEnergyKiloCalories, 513)
     }
 
+    // See section 4.8.1.11 of the FTMS Bluetooth Service specification.
+    func test_totalEnergy_presentButNotSupported_resultsIn_uint16Value_forHighValue() {
+        // If this field has to be present (i.e., if the Expended Energy Present bit of the Flags field is set to 1)
+        // but the Server does not support the calculation of the Total Energy, the Server shall use the special
+        // value 0xFFFF (i.e., decimal value of 65535 in UINT16 format), which means ‘Data Not Available’.
+
+        /* Given */
+        let flags = RowerDataCharacteristicFlags.create(expendedEnergyPresent: true)
+        let data = CharacteristicData.create(
+            flags: flags,
+            values: 0xff, // Total energy value 65535
+            0xff,
+            0, // Energy per hour value
+            0,
+            0, // Energy per minute value
+            0
+        )
+
+        /* When */
+        let result = RowerDataCharacteristic.decode(data: data)
+
+        /* Then */
+        XCTAssertNil(result.totalEnergyKiloCalories)
+    }
+
     // MARK: Energy Per Hour
 
     func test_energyPerHour_notPresent_resultsIn_nilValue() {
