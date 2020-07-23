@@ -5,17 +5,23 @@ import WaterRowerData_BLE
 
 private let log = OSLog(subsystem: "uk.co.waterrower.bluetooth.plist", category: "CBBleConnection")
 
-class CBBleConnection: BleConnection {
+/**
+ Represents a connection to a BLE device.
+ 
+ A connection can be made using `connect()`, use the `CBConnectionStateListener`
+ to eventually receive a `CBConnectedDevice`.
+ */
+class CBConnection {
 
     private let peripheralIdentifier: UUID
 
-    private var connectionState: BleConnectionState = .disconnected {
+    private var connectionState: CBConnectionState = .disconnected {
         didSet {
             listeners.forEach { listener in listener.onConnectionStateChanged(connectionState) }
         }
     }
 
-    private var listeners: [BleConnectionStateListener] = []
+    private var listeners: [CBConnectionStateListener] = []
 
     init(
         identifier: UUID
@@ -33,12 +39,21 @@ class CBBleConnection: BleConnection {
     private var delegate: BLEConnectionDelegate?
     private var manager: CBCentralManager?
 
+    /**
+     Tries to establish a connection with the BLE device.
+     
+     Listeners registered with `addConnectionStateListener` will be invoked
+     with connection status updates.
+     */
     func connect() {
         // Set up the CBCentralManager to initiate the connection
         delegate = BLEConnectionDelegate(peripheralIdentifier, self)
         manager = CBCentralManager(delegate: delegate, queue: nil)
     }
 
+    /**
+     Closes the connection with the BLE device.
+     */
     func disconnect() {
         guard let manager = manager else {
             os_log("Connection not connected, not disconnecting", log: log, type: .debug)
@@ -49,7 +64,16 @@ class CBBleConnection: BleConnection {
         self.delegate?.disconnect(manager)
     }
 
-    func addConnectionStateListener(listener: BleConnectionStateListener) -> Cancellable {
+    /**
+     Registers given listener to receive connection state changes.
+     
+     The listener will immediately be notified of the current connection state.
+     
+     - Returns: A Cancellable that can be invoked to stop listening.
+                A strong reference must be held to this instance,
+                disposing of the reference cancels the listener.
+     */
+    func addConnectionStateListener(_ listener: CBConnectionStateListener) -> Cancellable {
         listeners.append(listener)
         listener.onConnectionStateChanged(connectionState)
         return CancelListening(self, listener)
@@ -61,7 +85,7 @@ class CBBleConnection: BleConnection {
      */
     private class BLEConnectionDelegate: NSObject, CBCentralManagerDelegate {
 
-        private unowned let parent: CBBleConnection
+        private unowned let parent: CBConnection
         private let peripheralIdentifier: UUID
 
         // swiftlint:disable weak_delegate
@@ -69,7 +93,7 @@ class CBBleConnection: BleConnection {
 
         init(
             _ peripheralIdentifier: UUID,
-            _ parent: CBBleConnection
+            _ parent: CBConnection
         ) {
             self.parent = parent
             self.peripheralIdentifier = peripheralIdentifier
@@ -183,11 +207,11 @@ class CBBleConnection: BleConnection {
      */
     private class BleConnectionPeripheralDelegate: NSObject, CBPeripheralDelegate {
 
-        private unowned let parent: CBBleConnection
+        private unowned let parent: CBConnection
         var connectionCancelled = false
 
         init(
-            _ parent: CBBleConnection
+            _ parent: CBConnection
         ) {
             self.parent = parent
         }
@@ -253,7 +277,7 @@ class CBBleConnection: BleConnection {
         private func continueDiscovering(_ peripheral: CBPeripheral) {
             guard let service = pendingServices.first else {
                 os_log("Done discovering services and characteristics", log: log, type: .debug)
-                parent.connectionState = .connected(device: CBConnectedBleDevice(from: peripheral))
+                parent.connectionState = .connected(device: CBConnectedDevice(from: peripheral))
                 return
             }
 
@@ -267,12 +291,12 @@ class CBBleConnection: BleConnection {
 
     private class CancelListening: Cancellable {
 
-        private weak var parent: CBBleConnection?
-        private let listener: BleConnectionStateListener
+        private weak var parent: CBConnection?
+        private let listener: CBConnectionStateListener
 
         init(
-            _ parent: CBBleConnection,
-            _ listener: BleConnectionStateListener
+            _ parent: CBConnection,
+            _ listener: CBConnectionStateListener
         ) {
             self.parent = parent
             self.listener = listener

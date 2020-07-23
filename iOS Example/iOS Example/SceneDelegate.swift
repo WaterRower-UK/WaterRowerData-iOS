@@ -8,7 +8,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-    private let scanner = CBBleScanner()
+    private let scanner = CBScanner()
     private var cancellable: Cancellable?
 
     func scene(
@@ -22,7 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let devicesView = DevicesView(viewModel: devicesViewModel)
 
         cancellable = scanner.startScan(
-            withServices: [CBUUID(nsuuid: FitnessMachineService.uuid)]
+            // withServices: [CBUUID(nsuuid: FitnessMachineService.uuid)]
+            withServices: nil
         ) { result in
             if let name = result.peripheral.name {
                 devicesViewModel.append(

@@ -5,7 +5,7 @@ import WaterRowerData_BLE
 class DeviceDetailsViewModel: ObservableObject {
 
     private let device: Device
-    private let connection: BleConnection
+    private let connection: CBConnection
 
     var deviceName: String {
         return device.name
@@ -16,20 +16,20 @@ class DeviceDetailsViewModel: ObservableObject {
 
     init(_ device: Device) {
         self.device = device
-        self.connection = CBBleConnectionFactory.instance.create(from: device.id)
+        self.connection = CBConnectionFactory.instance.create(from: device.id)
     }
 
     private var connectionStatusCancellable: Cancellable?
 
     func viewDidAppear() {
-        connectionStatusCancellable = connection.addConnectionStateListener { state in
+        connectionStatusCancellable = connection.addConnectionStateListener(connectionStateListener { state in
             self.handle(connectionUpdate: state)
-        }
+        })
     }
 
     private var rowerDataCancellable: Cancellable?
 
-    private func handle(connectionUpdate state: BleConnectionState) {
+    private func handle(connectionUpdate state: CBConnectionState) {
         switch state {
             case .disconnected:
                 self.connectionStatus = .disconnected
@@ -42,7 +42,7 @@ class DeviceDetailsViewModel: ObservableObject {
         }
 
         if case .connected(device: let device) = state {
-            rowerDataCancellable = ConnectedRowerDataBleDevice(from: device).rowerData { rowerData in
+            rowerDataCancellable = ConnectedRowerDataDevice(from: device).rowerData { rowerData in
                 self.rowerData = rowerData
             }
         } else {
@@ -53,10 +53,9 @@ class DeviceDetailsViewModel: ObservableObject {
 
     func viewDidDisappear() {
         connectionStatusCancellable = nil
+        rowerDataCancellable = nil
         disconnect()
     }
-
-    private var cancellable: Cancellable?
 
     func connect() {
         connection.connect()

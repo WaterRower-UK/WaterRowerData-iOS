@@ -5,12 +5,12 @@ import Foundation
 private let log = OSLog(subsystem: "uk.co.waterrower.bluetooth.plist", category: "CBBleScanner")
 
 /**
- A `BleScanner` that uses `CoreBluetooth`.
+ A class that helps with scanning for BLE devices.
  
  This class instantiates a new `CBCentralManager` for each scan request,
  allowing the implementation to keep the scan results separate.
  */
-class CBBleScanner: BleScanner {
+class CBScanner {
 
     /** Strong references to the active managers */
     private var managers: [CBCentralManager] = []
@@ -18,10 +18,26 @@ class CBBleScanner: BleScanner {
     /** Strong references to the active delegates */
     private var delegates: [CBCentralManagerDelegate] = []
 
+    /**
+     Starts a scan for peripherals that are advertising.
+     
+     - Parameter withServices: An array of CBUUID objects that the app is
+       interested in. Each CBUUID object represents the UUID of a service
+       that a peripheral advertises.
+     
+     - Parameter allowDuplicates: If `true`, filtering is disabled and a
+       discovery event is generated each time an advertising packet is
+       received from the peripheral. If `false`, multiple discoveries of
+       the same peripheral are grouped in a single event.
+     
+     - Returns: A `Cancellable` that can be used to cancel the scan.
+       A strong reference must be held to this instance, disposing of
+       the reference cancels the scan.
+     */
     func startScan(
         withServices scanServicesUUIDs: [CBUUID]?,
-        allowDuplicates: Bool,
-        _ callback: BleScanCallback
+        allowDuplicates: Bool = false,
+        _ callback: @escaping (CBScanResult) -> Void
     ) -> Cancellable {
         let delegate = BLEScanDelegate(withServices: scanServicesUUIDs, allowDuplicates: allowDuplicates, callback)
         let manager = CBCentralManager(delegate: delegate, queue: nil)
@@ -36,12 +52,12 @@ class CBBleScanner: BleScanner {
 
         private let scanServiceUUIDs: [CBUUID]?
         private let allowDuplicates: Bool
-        private let callback: BleScanCallback
+        private let callback: (CBScanResult) -> Void
 
         init(
             withServices scanServiceUUIDs: [CBUUID]?,
             allowDuplicates: Bool,
-            _ callback: BleScanCallback
+            _ callback: @escaping (CBScanResult) -> Void
         ) {
             self.scanServiceUUIDs = scanServiceUUIDs
             self.allowDuplicates = allowDuplicates
@@ -82,8 +98,8 @@ class CBBleScanner: BleScanner {
         ) {
             // os_log("centralManagerDidDiscover %@", log: log, type: .debug, "\(peripheral)")
 
-            callback.onScanResult(
-                ScanResult(
+            callback(
+                CBScanResult(
                     peripheral: peripheral,
                     advertisementData: advertisementData,
                     rssi: RSSI
@@ -94,14 +110,14 @@ class CBBleScanner: BleScanner {
 
     private class BLEScanCanceller: Cancellable {
 
-        private unowned let scanner: CBBleScanner
+        private unowned let scanner: CBScanner
 
         // swiftlint:disable weak_delegate
         private let delegate: CBCentralManagerDelegate
         private let manager: CBCentralManager
 
         init(
-            _ scanner: CBBleScanner,
+            _ scanner: CBScanner,
             _ manager: CBCentralManager,
             _ delegate: CBCentralManagerDelegate
 
