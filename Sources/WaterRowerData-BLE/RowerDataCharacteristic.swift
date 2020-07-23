@@ -118,7 +118,12 @@ public class RowerDataCharacteristic {
     }
 
     private static func totalEnergy(from data: Data) -> Int? {
-        return readIntValue(from: data, for: rowerDataTotalEnergyField)
+        let result = readIntValue(from: data, for: rowerDataTotalEnergyField)
+        if result == 0xFFFF {
+            return nil
+        }
+
+        return result
     }
 
     private static func energyPerHour(from data: Data) -> Int? {
