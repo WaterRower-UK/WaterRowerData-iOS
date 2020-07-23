@@ -136,7 +136,12 @@ public class RowerDataCharacteristic {
     }
 
     private static func energyPerMinute(from data: Data) -> Int? {
-        return readIntValue(from: data, for: rowerDataEnergyPerMinuteField)
+        let result = readIntValue(from: data, for: rowerDataEnergyPerMinuteField)
+        if result == 0xFF {
+            return nil
+        }
+
+        return result
     }
 
     private static func heartRate(from data: Data) -> Int? {
