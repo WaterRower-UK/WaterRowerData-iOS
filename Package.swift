@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "WaterRowerData-iOS",
     platforms: [
-        .iOS(.v13)
+        .iOS(.v11)
     ],
     products: [
         .library(
