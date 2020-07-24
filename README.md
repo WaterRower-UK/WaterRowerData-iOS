@@ -11,7 +11,35 @@ usage instructions.
 
 ## Setup
 
-// TODO
+To include the package in your project, follow one of the following methods:
+
+### XCode
+
+See [Adding Package Dependencies to Your App](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app):
+
+ - Select File > Swift Packages > Add Package Dependency
+ - Enter `https://github.com/WaterRowerData-UK/WaterRowerData-iOS`
+ - Select the version, or leave as is
+ - Choose package products and targets
+ 
+### XCodeGen
+
+In your `project.yml` file include the following, replacing `x.x.x` with the
+latest release version:
+
+```diff
++ packages:
++   SwiftPM:
++     url: https://github.com/WaterRowerData-UK/WaterRowerData-iOS
++     version: x.x.x
+targets:
+  App
++    dependencies:
++      - package: SwiftPM
++      - product: WaterRowerData-BLE
+```
+
+Run `xcodegen generate`.
 
 ## Development
 

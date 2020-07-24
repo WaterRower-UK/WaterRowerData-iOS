@@ -9,11 +9,6 @@ specification with the RowerData GATT characteristic.
 This target provides classes that decode raw data received
 from a GATT characteristic into useable rower data.
 
-
-## Setup
-
-TODO
-
 ## Usage
 
 Once connected to a WaterRower monitor and receiving data 
