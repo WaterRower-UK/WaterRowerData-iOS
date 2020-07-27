@@ -9,7 +9,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Test
+      - name: Swift Test
         run: swift test
+      - name: Pod lib lint
+        run: pod lib lint --verbose
       - name: XCodeBuild
         run: xcodebuild -workspace iOS\ Example/iOS\ Example.xcworkspace -scheme "iOS Example" build CODE_SIGNING_REQUIRED=NO

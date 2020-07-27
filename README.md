@@ -51,3 +51,7 @@ Swift Package Manager is used to test and build this library:
 Open `WaterRowerData-iOS.xcodeproj` to start editing the source files.  
 Open `iOS Example/iOS Example.xcworkspace` to view and run the sample
 application.
+
+## Releasing
+
+See [RELEASING.md](RELEASING.md)
